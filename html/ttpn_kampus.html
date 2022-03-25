@@ -1,0 +1,115 @@
+<!-- Page Headings Start -->
+<div class="row justify-content-between align-items-center mb-10">
+
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <div class="page-heading">
+            <h3 class="title">Pentadbir <span>/ Tetapan</span><span>/ Kampus</span></h3>
+        </div>
+    </div><!-- Page Heading End -->
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <button class="button button-primary" data-toggle="modal" data-target="#reg-kampus"><span><i class="ti-plus"></i>Daftar Rekod</span></button>
+    </div><!-- Page Heading End -->
+
+</div><!-- Page Headings End -->
+
+<div class="col-12 mb-30">
+    <div class="box">
+        <div class="box-head">
+            <h4 class="title">Senarai Kampus</h4>
+        </div>
+        <div class="box-body">            
+            <div id="tableKampus">
+                <textarea class="hidden" id="dataList"></textarea>
+                <table id="kampusList" class="table"></table>
+              </div>
+        </div>
+    </div>
+</div><!-- Recent Transaction End -->
+
+<!-- Modal -->
+<div class="modal fade" id="reg-kampus">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <form role="form" id="register">
+                <div class="modal-header">
+                    <h5 class="modal-title">Daftar Rekod Kampus</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="col-12 mb-20">
+                            <label for="nama_kampus">Nama Kampus</label>
+                            <input type="text" class="form-control success" id="nama_kampus" required placeholder="Nama Kampus">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="alamat">Alamat Kampus</label>
+                            <input type="text" class="form-control success" id="alamat" required placeholder="Alamat Kampus">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="poskod">Poskod</label>
+                            <input type="text" class="form-control success" id="poskod" required placeholder="Poskod">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="bandar">Bandar</label>
+                            <input type="text" class="form-control success" id="bandar" required placeholder="Bandar">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="negeri">Negeri</label>
+                            <select class="form-control c-select success" id="negeri"></select>
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="button button-primary" type="submit"><i class="ti-check"></i> Simpan</button>
+                    <button class="button button-danger" data-dismiss="modal"><i class="ti-close"></i>Tutup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="update-kampus">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <form role="form" id="update">
+                <div class="modal-header">
+                    <h5 class="modal-title">Kemaskini Rekod Kampus</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body form-group">
+                    <p>
+                        <div class="col-12 mb-20">
+                            <label for="nama_kampus">Nama Kampus</label>
+                            <input type="text" class="hidden" id="upt_id">
+                            <input type="text" class="form-control success" id="upt_nama_kampus" required placeholder="Nama Kampus">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="alamat">Alamat Kampus</label>
+                            <input type="text" class="form-control success" id="upt_alamat" required placeholder="Alamat Kampus">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="poskod">Poskod</label>
+                            <input type="text" class="form-control success" id="upt_poskod" required placeholder="Poskod">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="bandar">Bandar</label>
+                            <input type="text" class="form-control success" id="upt_bandar" required placeholder="Bandar">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="negeri">Negeri</label>
+                            <select class="form-control c-select success" id="upt_negeri"></select>
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="button button-primary" type="submit"><i class="ti-check"></i> Kemaskini</button>
+                    <button class="button button-danger" data-dismiss="modal"><i class="ti-close"></i>Tutup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="./js/ttpn_kampus.js"></script>

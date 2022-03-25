@@ -1,0 +1,189 @@
+<h3>Pekerja Swasta</h3>
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="swasta">
+        <form id="registerswasta">
+            <div class="smart-wizard">
+                <ul style="display: none;">
+                    <li><a href="#step-1">1. Maklumat Diri</a></li>
+                    <li><a href="#step-2">2. Maklumat Kediaman</a></li>
+                    <li><a href="#step-3">3. Maklumat Pekerjaan</a></li>
+                    <li><a href="#step-4">4. Maklumat Kecemasan</a></li>
+                    <li><a href="#step-5">5. Tetapan Katalaluan</a></li>
+                </ul>
+    
+                <div>
+                    <div id="step-1" class="active">
+                        <div class="row mbn-20">
+                            <div class="col-12 mb-20 mt-30">
+                                <label>No. Kad Pengenalan</label>
+                                <input type="text" class="form-control" id="no_kad_pengenalan_swasta" placeholder="No K/P" required data-mask="999999999999" readonly>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Nama</label>
+                                <input type="text" class="form-control" id="nama_swasta" placeholder="Nama" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Jantina</label>
+                                <select class="form-control c-select success" id="FK_jantina_swasta" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Emel</label>
+                                <input type="text" class="form-control" id="emel_swasta" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Tarikh Lahir</label>
+                                <input type="date" class="form-control" id="tarikh_lahir_swasta" placeholder="Tarikh Lahir" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>No. Telefon</label>
+                                <input type="text" class="form-control" id="notel_swasta" placeholder="No. Telefon" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Status Warganegara</label>
+                                <select class="form-control c-select success" id="FK_warganegara_swasta" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Gelaran</label>
+                                <select class="form-control c-select success" id="FK_gelaran_swasta" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Bangsa</label>
+                                <select class="form-control c-select success" id="FK_bangsa_swasta" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Etnik</label>
+                                <select class="form-control c-select success" id="FK_etnik_swasta" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Agama</label>
+                                <select class="form-control c-select success" id="FK_agama_swasta" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Negeri Kelahiran</label>
+                                <select class="form-control c-select success" id="FK_negeri_lahir_swasta" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Negara Kelahiran</label>
+                                <select class="form-control c-select success" id="FK_negara_lahir_swasta" required></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-2">
+                        <div class="row mbn-20">
+                            <div class="col-12 mb-20 mt-30">
+                                <h4>2. Maklumat Kediaman</h4>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Alamat 1</label>
+                                <input type="text" class="form-control" id="alamat1_rumah_swasta" placeholder="Alamat 1" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Alamat 2</label>
+                                <input type="text" class="form-control" id="alamat2_rumah_swasta" placeholder="Alamat 2" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Poskod</label>
+                                <input type="text" class="form-control" id="poskod_rumah_swasta" placeholder="Poskod" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Daerah</label>
+                                <input type="text" class="form-control" id="daerah_rumah_swasta" placeholder="Daerah" readonly required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Negeri</label>
+                                <input type="text" class="form-control" id="negeri_rumah_swasta" placeholder="Negeri" readonly required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Negara</label>
+                                <input type="text" class="form-control" id="negara_rumah_swasta" placeholder="Negara" readonly required>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-3">
+                        <div class="row mbn-20">
+                            <div class="col-12 mb-20 mt-30">
+                                <h4>3. Maklumat Pekerjaan</h4>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Nama Majikan</label>
+                                <input type="text" class="form-control" id="nama_majikan_swasta" placeholder="Nama Majikan" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>No. Telefon Majikan</label>
+                                <input type="text" class="form-control" id="notel_majikan_swasta" placeholder="No. Telefon Majikan" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Jawatan</label>
+                                <input type="text" class="form-control" id="jawatan_swasta" placeholder="Nama Majikan" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Emel Majikan</label>
+                                <input type="text" class="form-control" id="emel_majikan_swasta" placeholder="Nama Majikan" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Alamat 1</label>
+                                <input type="text" class="form-control" id="alamat1_organisasi_swasta" placeholder="Alamat 1" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Alamat 2</label>
+                                <input type="text" class="form-control" id="alamat2_organisasi_swasta" placeholder="Alamat 2" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Poskod</label>
+                                <input type="text" class="form-control" id="poskod_organisasi_swasta" placeholder="Poskod" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Daerah</label>
+                                <input type="text" class="form-control" id="daerah_organisasi_swasta" placeholder="Daerah" readonly required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Negeri</label>
+                                <input type="text" class="form-control" id="negeri_organisasi_swasta" placeholder="Negeri" readonly required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Negara</label>
+                                <input type="text" class="form-control" id="negara_organisasi_swasta" placeholder="Negara" readonly required>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-4">
+                        <div class="row mbn-20">
+                            <div class="col-12 mb-20 mt-30">
+                                <h4>4. Maklumat Kecemasan</h4>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Nama</label>
+                                <input type="text" class="form-control" id="nama_mk_swasta" placeholder="Nama" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>No. Telefon</label>
+                                <input type="text" class="form-control" id="notel_mk_swasta" placeholder="Kod" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-5">
+                        <div class="row mbn-20">
+                            <div class="col-12 mb-20 mt-30">
+                                <h4>5. Tetapan Katalaluan</h4>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Katalaluan</label>
+                                <input type="password" class="form-control" id="katalaluan_swasta" placeholder="Katalaluan" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Pengesahan Katalaluan</label>
+                                <input type="password" class="form-control" id="ckatalaluan_swasta" placeholder="Katalaluan" required>
+                            </div>
+                            <div class="col-12 mt-10"><button class="button button-primary button-outline">Daftar</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>                                                    
+        </form>
+    </div>
+</div>
+
+<!-- Plugins & Activation JS For Only This Page -->
+<script src="../assets/js/plugins/smartWizard/jquery.smartWizard.min.js"></script>
+<script src="../assets/js/plugins/smartWizard/smartWizard.active.js"></script>
+<script src="./js/swasta.js"></script>

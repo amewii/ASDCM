@@ -1,0 +1,468 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ASDCM</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+    <!-- CSS
+	============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/vendor/cryptocurrency-icons.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/plugins.css">
+    <!-- <link rel="stylesheet" href="assets/footable2/css/footable.bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="assets/footable2/css/footable.bootstrap.min.css" type="text/css" /> -->
+    <link rel="stylesheet" href="assets/sweet-alert/sweetalert2.css" type="text/css" />
+    <link rel="stylesheet" href="assets/sweet-alert/sweetalert2.min.css" type="text/css" />
+
+    <!-- UploadImg -->
+    <link rel="stylesheet" href="assets/css/vendor/fileup.min.css" />
+
+    <!-- Helper CSS -->
+    <link rel="stylesheet" href="assets/css/helper.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Custom Style CSS Only For Demo Purpose -->
+    <link id="cus-style" rel="stylesheet" href="assets/css/style-primary.css">
+
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+
+
+        <!-- Header Section Start -->
+        <div class="header-section">
+            <div class="container-fluid">
+                <div class="row justify-content-between align-items-center">
+
+                    <!-- Header Logo (Header Left) Start -->
+                    <div class="header-logo col-auto">
+                        <a href="index.html">
+                            <img src="assets/images/logo/DCM.png" width="60px" alt=""> <h2></h2>
+                            <img src="assets/images/logo/DCM.png" class="logo-light" width="50px" alt="">
+                        </a>
+                    </div><!-- Header Logo (Header Left) End -->
+
+                    <!-- Header Right Start -->
+                    <div class="header-right flex-grow-1 col-auto">
+                        <div class="row justify-content-between align-items-center">
+
+                            <!-- Side Header Toggle & Search Start -->
+                            <div class="col-auto">
+                                <div class="row align-items-center">
+
+                                    <!--Side Header Toggle-->
+                                    <div class="col-auto"><button class="side-header-toggle"><i class="zmdi zmdi-menu"></i></button></div>
+
+                                    <!--Header Search-->
+                                    <div class="col-auto">
+
+                                        <div class="header-search">
+
+                                            <button class="header-search-open d-block d-xl-none"><i class="zmdi zmdi-search"></i></button>
+
+                                            <div class="header-search-form hidden">
+                                                <form action="#">
+                                                    <input type="text" placeholder="Search Here">
+                                                    <button><i class="zmdi zmdi-search"></i></button>
+                                                </form>
+                                                <button class="header-search-close d-block d-xl-none"><i class="zmdi zmdi-close"></i></button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div><!-- Side Header Toggle & Search End -->
+
+                            <!-- Header Notifications Area Start -->
+                            <div class="col-auto">
+
+                                <ul class="header-notification-area">
+
+                                    <!--Notification-->
+                                    <li class="adomx-dropdown col-auto">
+                                        <a class="toggle" href="#"><i class="zmdi zmdi-notifications"></i><span id="badge"></span></a>
+
+                                        <!-- Dropdown -->
+                                        <div class="adomx-dropdown-menu dropdown-menu-notifications">
+                                            <div class="head">
+                                                <h5 class="title" id="notificationbill">Tiada Notifikasi</h5>
+                                            </div>
+                                            <div class="body custom-scroll">
+                                                <ul id="notificationlist"></ul>
+                                            </div>
+                                        </div>
+
+                                    </li>
+                                    
+                                    <!--User-->
+                                    <li class="adomx-dropdown col-auto">
+                                        <a class="toggle" id="">
+                                            <span class="user">
+                                        <span class="avatar">
+                                            <img src="assets/images/avatar/avatar-1.jpg" alt="">
+                                            <span class="status"></span>
+                                            </span>
+                                            <span class="name hidden" id="user_nama"></span>
+                                            </span>
+                                        </a>
+
+                                        <!-- Dropdown -->
+                                        <div class="adomx-dropdown-menu dropdown-menu-user" id="menu-kanan">
+                                            <div class="head">
+                                                <h5 class="name"><span id="user_namas"></span></h5>
+                                                <span class="mail" id="user_emel"></span>
+                                            </div>
+                                            <div class="body">
+                                                <ul class="hidden">
+                                                    <li class="hidden"><a id=""><i class="zmdi zmdi-account"></i>Profile</a></li>
+                                                    <li class="hidden"><a id=""><i class="zmdi zmdi-email-open"></i>Mesej</a></li>
+                                                    <li class="hidden"><a id=""><i class="zmdi zmdi-wallpaper"></i>Aktiviti</a></li>
+                                                </ul>
+                                                <ul>
+                                                    <li class="hidden"><a id=""><i class="zmdi zmdi-settings"></i>Tetapan Pengguna</a></li>
+                                                    <li><a id="logKeluar"><i class="zmdi zmdi-lock-open"></i>Log Keluar</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </li>
+
+                                </ul>
+
+                            </div><!-- Header Notifications Area End -->
+
+                        </div>
+                    </div><!-- Header Right End -->
+
+                </div>
+            </div>
+        </div><!-- Header Section End -->
+        <!-- Side Header Start -->
+        <div id="sidemenu"></div>
+        <div class="side-header show">
+            <button class="side-header-close"><i class="zmdi zmdi-close"></i></button>
+            <!-- Side Header Inner Start -->
+            <div class="side-header-inner custom-scroll">        
+                <nav class="side-header-menu" id="side-header-menu">
+                    <ul>
+                        <li style="margin-bottom: 10px;"><a id="home"><i style="font-size: large;" class="ti-home"></i> <span style="font-size: large;">Laman Utama</span></a></li>
+                        <li style="margin-bottom: 10px;" class="has-sub-menu"><a id="sysadmin"></a>
+                            <ul class="side-header-sub-menu">
+                                <li class="has-sub-menu"><a id="pentadbir_sistem"></a>
+                                    <ul class="side-header-sub-menu">
+                                        <li class="has-sub-menu"><a id="ttpn_nama_menu"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_sistem"></a></li>
+                                        <li class="has-sub-menu hidden"><a id="ttpn_kumpulan_pengguna"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_capaian"></a></li>
+                                        <li class="has-sub-menu"><a id="senarai_pengguna"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_useradmin"></a></li>
+                                        <li class="has-sub-menu"><a id="log"></a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-sub-menu"><a id="master_induk"></a>
+                                    <ul class="side-header-sub-menu">
+                                        <li class="has-sub-menu"><a id="ttpn_agama"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_bangsa"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_etnik"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_gelaran"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_kampus"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_kluster"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_modul"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_negara"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_negeri"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_unit"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_warganegara"></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li style="margin-bottom: 10px;" class="has-sub-menu"><a id="media"></a>
+                            <ul class="side-header-sub-menu">
+                                <li class="has-sub-menu"><a id="tetapan_media"></a>
+                                    <ul class="side-header-sub-menu">
+                                        <li class="has-sub-menu"><a id="ttpn_med_format"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_med_kategori"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_med_status"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_med_tempoh"></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_vip"></a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-sub-menu"><a id="med_program"></a></li>
+                                <li class="has-sub-menu"><a id="med_permohonan"></a></li>
+                            </ul>
+                        </li>
+                        <!-- <li style="margin-bottom: 10px;" class="has-sub-menu"><a id="home"><i style="font-size: large;" class="zmdi zmdi-accounts"></i> <span style="font-size: large;">Pentadbir</span></a>
+                            <ul class="side-header-sub-menu">
+                                <li class="has-sub-menu"><a href="#"><span style="font-size: medium;">Tetapan</span></a>
+                                    <ul class="side-header-sub-menu">
+                                        <li class="has-sub-menu"><a id="ttpn_agama"><span style="font-size: medium;">Agama</span></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_bangsa"><span style="font-size: medium;">Bangsa</span></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_etnik"><span style="font-size: medium;">Etnik</span></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_gelaran"><span style="font-size: medium;">Gelaran</span></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_kampus"><span style="font-size: medium;">Kampus</span></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_kluster"><span style="font-size: medium;">Kluster</span></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_modul"><span style="font-size: medium;">Modul</span></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_negara"><span style="font-size: medium;">Negara</span></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_negeri"><span style="font-size: medium;">Negeri</span></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_unit"><span style="font-size: medium;">Unit</span></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_warganegara"><span style="font-size: medium;">Warganegara</span></a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-sub-menu"><a id="ttpn_useradmin"><span style="font-size: medium;">User Admin</span></a></li>
+                                <li class="has-sub-menu"><a id="ttpn_capaian"><span style="font-size: medium;">Capaian</span></a></li>
+                                <li class="has-sub-menu"><a id="senarai_pengguna"><span style="font-size: medium;">Senarai Pengguna</span></a></li>
+                            </ul>
+                        </li>
+                        <li style="margin-bottom: 10px;" class="has-sub-menu"><a id="home"><i style="font-size: large;" class="ti-image"></i> <span style="font-size: large;">Media</span></a>
+                            <ul class="side-header-sub-menu">
+                                <li class="has-sub-menu"><a href="#"><span style="font-size: medium;">Tetapan</span></a>
+                                    <ul class="side-header-sub-menu">
+                                        <li class="has-sub-menu"><a id="ttpn_med_format"><span style="font-size: medium;">Format</span></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_med_kategori"><span style="font-size: medium;">Kategori Program</span></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_med_status"><span style="font-size: medium;">Status</span></a></li>
+                                        <li class="has-sub-menu"><a id="ttpn_med_tempoh"><span style="font-size: medium;">Tempoh</span></a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-sub-menu"><a id="med_program"><span style="font-size: medium;">Senarai Program</span></a></li>
+                                <li class="has-sub-menu"><a id="med_permohonan"><span style="font-size: medium;">Senarai Permohonan</span></a></li>
+                            </ul>
+                        </li>                         -->
+                    </ul>
+                </nav>        
+            </div><!-- Side Header Inner End -->
+        </div><!-- Side Header End -->
+
+        <!-- Content Body Start -->
+        <div class="content-body" id="content">
+
+            <!-- Page Headings Start -->
+            <div class="row justify-content-between align-items-center mb-10">
+
+                <!-- Page Heading Start -->
+                <div class="col-12 col-lg-auto mb-20">
+                    <div class="page-heading">
+                        <h3 class="title">Laman Utama</span></h3>
+                    </div>
+                </div><!-- Page Heading End -->
+
+            </div><!-- Page Headings End -->
+
+            <!-- Top Report Wrap Start -->
+            <div class="row">
+                <!-- Top Report Start -->
+                <div class="col-xlg-4 col-md-6 col-12 mb-30">
+                    <div class="top-report">
+
+                        <!-- Head -->
+                        <div class="head">
+                            <h4>Jumlah Pengguna Berdaftar</h4>
+                            <a href="#" class="view"><i class="zmdi zmdi-eye"></i></a>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="content">
+                            <h5></h5>
+                            <h2>20</h2>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="footer">
+                            <div class="progess">
+                                <div class="progess-bar" style="width: 85%;"></div>
+                            </div>
+                            <p>85% Pekerja Kerajaan</p>
+                        </div>
+
+                    </div>
+                </div><!-- Top Report End -->
+
+                <!-- Top Report Start -->
+                <div class="col-xlg-4 col-md-6 col-12 mb-30">
+                    <div class="top-report">
+
+                        <!-- Head -->
+                        <div class="head">
+                            <h4>Purata Pengguna Harian</h4>
+                            <a href="#" class="view"><i class="zmdi zmdi-eye"></i></a>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="content">
+                            <h5></h5>
+                            <h2>12</h2>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="footer">
+                            <div class="progess">
+                                <div class="progess-bar" style="width: 60%;"></div>
+                            </div>
+                            <p>60% dari Jumlah Pengguna</p>
+                        </div>
+
+                    </div>
+                </div><!-- Top Report End -->
+
+                <!-- Top Report Start -->
+                <div class="col-xlg-4 col-md-6 col-12 mb-30">
+                    <div class="top-report">
+
+                        <!-- Head -->
+                        <div class="head">
+                            <h4>Bilangan Program</h4>
+                            <a href="#" class="view"><i class="zmdi zmdi-eye"></i></a>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="content">
+                            <h5></h5>
+                            <h2>10</h2>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="footer">
+                            <div class="progess">
+                                <div class="progess-bar" style="width: 80%;"></div>
+                            </div>
+                            <p>80% Mempunyai Media</p>
+                        </div>
+
+                    </div>
+                </div><!-- Top Report End -->
+                
+            </div><!-- Top Report Wrap End -->
+
+            <div class="row mbn-30">
+
+                <!-- Revenue Statistics Chart Start -->
+                <div class="col-md-8 mb-30">
+                    <div class="box">
+                        <div class="box-head">
+                            <h4 class="title">Statistik Pengguna Aktif</h4>
+                        </div>
+                        <div class="box-body">
+                            <div class="chart-legends-1 row">
+                                <div class="chart-legend-1 col-12 col-sm-6">
+                                    <h5 class="title">Jumlah Pengguna</h5>
+                                    <h3 class="value text-secondary">20</h3>
+                                </div>
+                                <div class="chart-legend-1 col-12 col-sm-6">
+                                    <h5 class="title">Bulan</h5>
+                                    <h3 class="value text-primary">Mac</h3>
+                                </div>
+                            </div>
+                            <div class="chartjs-revenue-statistics-chart">
+                                <canvas id="chartjs-revenue-statistics-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Revenue Statistics Chart End -->
+
+                <!-- Market Trends Chart Start -->
+                <div class="col-md-4 mb-30">
+                    <div class="box">
+                        <div class="box-head">
+                            <h4 class="title">Kategori Pengguna</h4>
+                        </div>
+                        <div class="box-body">
+                            <div class="chartjs-market-trends-chart">
+                                <canvas id="chartjs-market-trends-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Market Trends Chart End -->               
+
+            </div>
+        </div><!-- Content Body End -->
+
+    </div>
+
+    <!-- JS
+============================================ -->
+
+    <!-- Global Vendor, plugins & Activation JS -->
+    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <!--Plugins JS-->
+    <script src="assets/sweet-alert/sweetalert2.js"></script>
+    <script src="assets/sweet-alert/sweetalert2.min.js"></script>
+    <!-- <script src="assets/footable2/js/footable.js"></script>
+    <script src="assets/footable2/js/footable.min.js"></script> -->
+    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/plugins/tippy4.min.js.js"></script>
+
+    <!-- Plugins & Activation JS For Only This Page -->
+    <script src="assets/js/plugins/moment/moment.min.js"></script>
+    <script src="assets/js/plugins/footable/footable.min.js"></script>
+    <script src="assets/js/plugins/footable/footable.active.js"></script>
+    <script src="assets/js/plugins/select2/select2.full.min.js"></script>
+    <script src="assets/js/plugins/select2/select2.active.js"></script>
+    <script src="assets/js/plugins/nice-select/jquery.nice-select.min.js"></script>
+    <script src="assets/js/plugins/nice-select/niceSelect.active.js"></script>
+    <script src="assets/js/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="assets/js/plugins/bootstrap-select/bootstrapSelect.active.js"></script>
+
+    <!-- Plugins & Activation JS For Only This Page -->
+
+    <!--Moment-->
+    <script src="assets/js/plugins/moment/moment.min.js"></script>
+
+    <!--Daterange Picker-->
+    <script src="assets/js/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="assets/js/plugins/daterangepicker/daterangepicker.active.js"></script>
+
+    <!--Echarts-->
+    <script src="assets/js/plugins/chartjs/Chart.min.js"></script>
+    <script src="assets/js/plugins/chartjs/chartjs.active.js"></script>
+
+    <!--VMap-->
+    <script src="assets/js/plugins/vmap/jquery.vmap.min.js"></script>
+    <script src="assets/js/plugins/vmap/maps/jquery.vmap.world.js"></script>
+    <script src="assets/js/plugins/vmap/maps/samples/jquery.vmap.sampledata.js"></script>
+    <script src="assets/js/plugins/vmap/vmap.active.js"></script>
+
+    <!-- Plugins & Activation JS For Only This Page -->
+    <script src="assets/js/plugins/filepond/filepond.min.js"></script>
+    <script src="assets/js/plugins/filepond/filepond.min.js"></script>
+    <script src="assets/js/plugins/filepond/filepond-plugin-image-exif-orientation.min.js"></script>
+    <script src="assets/js/plugins/filepond/filepond-plugin-file-validate-size.js"></script>
+    <script src="assets/js/plugins/filepond/filepond-plugin-image-preview.min.js"></script>
+    <script src="assets/js/plugins/filepond/filepond.active.js"></script>
+    <script src="assets/js/plugins/dropify/dropify.min.js"></script>
+    <script src="assets/js/plugins/dropify/dropify.active.js"></script>
+
+    <!-- UploadImg -->
+    <script src="assets/js/vendor/fileup.min.js"></script>
+
+    <!--Main JS-->
+    <script src="assets/js/main.js"></script>
+    <script src="config.js"></script>
+    <script src="index.js"></script>
+    <script src="menu.js"></script>
+
+</body>
+
+</html>

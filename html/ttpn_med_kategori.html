@@ -1,0 +1,116 @@
+<!-- Page Headings Start -->
+<div class="row justify-content-between align-items-center mb-10">
+
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <div class="page-heading">
+            <h3 class="title">Media <span>/ Tetapan</span><span>/ Kategori</span></h3>
+        </div>
+    </div><!-- Page Heading End -->
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <button class="button button-primary" data-toggle="modal" data-target="#reg-kategori"><span><i class="ti-plus"></i>Daftar Rekod</span></button>
+    </div><!-- Page Heading End -->
+
+</div><!-- Page Headings End -->
+
+<div class="col-12 mb-30">
+    <div class="box">
+        <div class="box-head">
+            <h4 class="title">Senarai Kategori</h4>
+        </div>
+        <div class="box-body">            
+            <div id="tableKategori">
+                <textarea class="hidden" id="dataList"></textarea>
+                <table id="medkategoriList" class="table"></table>
+              </div>
+        </div>
+    </div>
+</div><!-- Recent Transaction End -->
+
+<!-- Modal -->
+<div class="modal fade" id="reg-kategori">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <form role="form" id="register">
+                <div class="modal-header">
+                    <h5 class="modal-title">Daftar Rekod Kategori</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="col-12 mb-20">
+                            <label for="nama_kategori">Nama Kategori</label>
+                            <input type="text" class="form-control success" id="nama_kategori" required placeholder="Nama Kategori">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="kod_kategori">Kod Kategori</label>
+                            <input type="text" class="form-control success" id="kod_kategori" required placeholder="Kod Kategori">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="bilangan_fail">Bilangan Fail</label>
+                            <input type="number" step="1" class="form-control success" id="bilangan_fail" required placeholder="Bilangan Fail">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="kod_kategori">Jenis Format</label>
+                            <div class="adomx-checkbox-radio-group inline" id="checkboxformat"></div>
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="bilangan_fail">Saiz Fail (MB)</label>
+                            <input type="number" step="1" class="form-control success" id="saiz_fail" required placeholder="Saiz Fail (MB)">
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="button button-primary" type="submit"><i class="ti-check"></i> Simpan</button>
+                    <button class="button button-danger" data-dismiss="modal"><i class="ti-close"></i>Tutup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="update-medkategori">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <form role="form" id="update">
+                <div class="modal-header">
+                    <h5 class="modal-title">Kemaskini Rekod Kategori</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="col-12 mb-20">
+                            <label for="upt_nama_kategori">Nama Kategori</label>
+                            <input type="text" class="hidden" id="upt_id" placeholder="Nama Kategori">
+                            <input type="text" class="form-control success" id="upt_nama_kategori" required placeholder="Nama Kategori">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="upt_kod_kategori">Kod Kategori</label>
+                            <input type="text" class="form-control success" id="upt_kod_kategori" required placeholder="Kod Kategori">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="upt_bilangan_fail">Bilangan Fail</label>
+                            <input type="number" step="1" class="form-control success" id="upt_bilangan_fail" required placeholder="Bilangan Fail">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="upt_checkboxformat">Jenis Format</label>
+                            <input type="text" class="form-control hidden" id="upt_checkboxformatval">
+                            <div class="adomx-checkbox-radio-group inline" id="upt_checkboxformat"></div>
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="upt_saiz_fail">Saiz Fail (MB)</label>
+                            <input type="number" step="1" class="form-control success" id="upt_saiz_fail" required placeholder="Saiz Fail (MB)">
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="button button-primary" type="submit"><i class="ti-check"></i> Kemaskini</button>
+                    <button class="button button-danger" data-dismiss="modal"><i class="ti-close"></i>Tutup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="./js/ttpn_med_kategori.js"></script>

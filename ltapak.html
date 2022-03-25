@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>iProjek - MBJB</title>
+  <meta name="description" content="Responsive, Bootstrap, BS4" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="images/Team MBJB.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="images/Team MBJB.png">
+  
+  <!-- style -->
+  <link rel="stylesheet" href="css/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/material-design-icons/material-design-icons.css" type="text/css" />
+  <link rel="stylesheet" href="css/ionicons/css/ionicons.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/simple-line-icons/css/simple-line-icons.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+
+  <!-- build:css css/styles/app.min.css -->
+  <link rel="stylesheet" href="css/styles/app.css" type="text/css" />
+  <link rel="stylesheet" href="css/styles/style.css" type="text/css" />
+
+    <!-- Sweet Alert css -->
+    <link href="libs/sweet-alert/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="css/styles/font.css" type="text/css" />
+</head>
+<body>
+  <div class="app-footer white bg p-a b-t">
+    <div class="">
+      <form id="form_search">
+        <!-- <div class="col-md-3 m-b">
+          
+        </div> -->
+        <div class="col-md-12 m-b">
+          <div class="from-group">
+            <div class="form-inline">
+              <input type="date" id="tarikh_awal" class="form-control m-b" required />
+              <input type="date" id="tarikh_akhir" class="form-control m-b" required />
+              <button type="submit" class="btn btn-outline-primary m-b"><i class="fa fa-search"></i> Cari</button>
+              <button type="button" id="cetak" class="btn btn-info m-b"><i class="fa fa-print"></i> Cetak</button>           
+            <div class="pull-right">                
+              <a id="upt_tapak" class="btn btn-icon rounded text-white light-blue-800 m-b"><i class="fa fa-plus"></i></a>
+            </div>
+            </div>                        
+          </div>
+        </div>
+      </form>      
+    </div>
+    
+    </div>
+  <div class="app" id="app">
+
+<!-- ############ LAYOUT START-->
+
+  <!-- aside -->
+  
+  <!-- / -->
+  
+  <!-- content -->
+  <div id="content" class="app-content box-shadow-z2 bg pjax-container" role="main">
+    <div class="app-body">
+
+<!-- ############ PAGE START-->
+<!-- only need a height for layout 4 -->
+<div style="min-height: 500px; padding-bottom:200px ;">
+  <div class="modal" id="loading_modal" data-backdrop="static">
+    <div class="modal-dialog">
+      <div style="padding-top: 50%;" class="text-center text-white"><span class="fa fa-refresh fa-spin fa-3x m-b"></span><br><i>Tunggu Sebentar...</i></div>
+    </div>
+  </div>
+
+<div class="row-col">
+  <div class="row m-t m-b m-l m-r"> 
+    <div class="col-md-12">
+      <div class="alert alert-info" id="jabatan_bahagian"><b>Jabatan_bahagian</b></div>
+        <p class="h5">
+            <a id="backs"><i class="fa fa-arrow-left text-success"></i></a> 
+            <span id="code"></span>
+        </p>
+        <p id="tkerja"></p>
+    </div>
+    <div class="">
+      <div class="col-md-6">
+          <table class="table table-bordered table-striped">
+              <tr><td><b>Syarikat</b><br><span id="nsyarikat"></span>  (<span id="norujuk"></span>)</td></tr>
+              <tr><td><b>Tempoh</b><br><span id="tmula"></span> Hingga <span id="tsiap"></span></td></tr>
+              <tr><td><b>Amaun Projek</b><br>RM <span id="amaun"></span></td></tr>
+          </table>
+      </div>
+      <div class="col-md-6">
+          <table class="table table-bordered table-striped">
+              <tr><td><b>Status</b><br><span id="statusrekod"></span></td></tr>
+              <tr><td><b>Baki Tempoh</b><br><span id="btempoh"></span> Hari</td></tr>
+              <tr><td><b>Baki Amaun</b><br>RM <span id="harga"></span></td></tr>
+          </table>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="table-responsive m-t">
+        <table id="list_ltapak" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Tarikh</th><th>Catatan</th><th class="text-center">Gambar</th><th class="text-right">Status Rekod</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr class="grey-100">
+                  <td colspan="4" class="text-center"><i>Tiada Laporan Tapak Oleh Pegawai</i></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+        
+  </div>
+</div>
+</div>
+
+<!-- ############ PAGE END-->
+
+    </div>
+  </div>
+  <!-- / -->
+
+<!-- ############ LAYOUT END-->
+  </div>
+
+<!-- modal -->
+<div class="modal fade" id="upt_progress" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="c">
+        <div class="modal-header">
+          <b>Laporan Kerja</b>
+        </div>
+        <input type="hidden" id="id_pk" />
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <p id="bk"></p>
+              <div class="form-group">
+                <label for="catatan">Catatan/Ulasan</label>
+                <textarea class="form-control" required rows="5" id="catatan"></textarea>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <input type="date" class="form-control" required id="dupdate" />
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="text" required class="form-control text-right" placeholder="Peratus Pelaksanaan" name="peratus" id="peratus">
+                      <span class="input-group-addon grey-50">%</span>
+                    </div>
+                    <select hidden class="form-control" id="pegawai"></select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <textarea name="list_upload" hidden required id="json_img"></textarea>
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header"><b>Muat Naik</b></div>
+                <div class="card-body">
+                  <div class="row m-a">
+                    <div class="col-md-12">
+                      <div class="m-b">
+                        <input type="file" id="upload_1" class="form-control" width="100%" />
+                      </div>
+                      <textarea class="form-control" id="img_catatan" placeholder="catatan gambar" name="img_catatan" rows="3"></textarea>    
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="m-l m-r">
+                    <a id="attach_tmp" class="btn btn-info text-white"><i class="fa fa-upload"></i> Muatnaik</a>
+                    <span style="display: none;" id="load_tmp">
+                      <span class="text-muted fa fa-refresh fa-spin m-l"></span> <i>Tunggu Sebentar...</i>
+                    </span>
+                  </div>
+                </div>
+                
+                <!-- <input type="file" id="upload_2" class="green-700 m-b form-control" width="100%" />
+                <input type="file" id="upload_3" class="green-500 m-b form-control" width="100%" /> -->
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div id="row">
+                <div class="col-md-6" id="img_list1"></div>
+                <div class="col-md-6" id="img_list2"></div>
+                <!-- <p class="text-muted text-center">Tiada Senarai Muatnaik Gambar</p> -->
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="submit" id="simpan_progress" class="btn blue-800">Simpan</button>
+          <a class="btn btn-outline b-black" href="#" data-dismiss="modal">Kembali</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+
+<div class="modal fade animate" id="gambar_detail">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content img-thumbnail m-a text-center">
+      <img id="detail_img" width="100%" />
+      <p class="alert alert-info m-a" id="msg_img"></p>
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal">Kembali</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- jQuery -->
+  <script src="libs/jquery/dist/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+  <script src="libs/jquery/dist/jquery.md5.js" ></script>
+  <!-- <script src="libs/jquery/dist/jquery.js"></script> -->
+<!-- Bootstrap -->
+  <script src="libs/tether/dist/js/tether.min.js"></script>
+  <script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+<!-- core -->
+  <script src="libs/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="libs/PACE/pace.min.js"></script>
+  <!-- <script src="libs/jquery-pjax/jquery.pjax.js"></script> -->
+  <script src="libs/blockUI/jquery.blockUI.js"></script>
+  <script src="libs/jscroll/jquery.jscroll.min.js"></script>
+
+  <!-- Sweet Alert Js  -->
+  <script src="libs/sweet-alert/sweetalert2.min.js"></script>
+
+<script src="libs/footable2/js/footable.min.js"></script>
+<link rel="stylesheet" href="libs/footable2/css/footable.bootstrap.min.css">
+
+  <script src="scripts/config.lazyload.js"></script>
+  <script src="scripts/ui-load.js"></script>
+  <script src="scripts/ui-jp.js"></script>
+  <script src="scripts/ui-include.js"></script>
+  <script src="scripts/ui-device.js"></script>
+  <script src="scripts/ui-form.js"></script>
+  <script src="scripts/ui-modal.js"></script>
+  <script src="scripts/ui-nav.js"></script>
+  <script src="scripts/ui-list.js"></script>
+  <script src="scripts/ui-screenfull.js"></script>
+  <script src="scripts/ui-scroll-to.js"></script>
+  <script src="scripts/ui-toggle-class.js"></script>
+  <script src="scripts/ui-taburl.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/ajax.js"></script>
+
+  <script src="config.js"></script>
+  <script src="anggota.js"></script>
+  <script src="ltapak.js"></script>
+  <!-- <script src="live.js"></script> -->
+<!-- endbuild -->
+</body>
+</html>

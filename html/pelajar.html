@@ -1,0 +1,176 @@
+<h3>Pelajar</h3>
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="pelajar">
+        <form id="registerpelajar">
+            <div class="smart-wizard">
+                <ul style="display: none;">
+                    <li><a href="#step-1">1. Maklumat Diri</a></li>
+                    <li><a href="#step-2">2. Maklumat Kediaman</a></li>
+                    <li><a href="#step-3">3. Maklumat Institut</a></li>
+                    <li><a href="#step-4">4. Maklumat Kecemasan</a></li>
+                    <li><a href="#step-5">5. Tetapan Katalaluan</a></li>
+                </ul>
+    
+                <div>
+                    <div id="step-1" class="active">
+                        <div class="row mbn-20">
+                            <div class="col-12 mb-20 mt-30">
+                                <h4>1. Maklumat Diri</h4>
+                            </div>
+                            <div class="col-12 mb-20 mt-30">
+                                <label>No. Kad Pengenalan</label>
+                                <input type="text" class="form-control" id="no_kad_pengenalan_pelajar" placeholder="No K/P" required data-mask="999999999999" readonly>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Nama</label>
+                                <input type="text" class="form-control" id="nama_pelajar" placeholder="Nama" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Jantina</label>
+                                <select class="form-control c-select success" id="FK_jantina_pelajar" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Emel</label>
+                                <input type="text" class="form-control" id="emel_pelajar" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Tarikh Lahir</label>
+                                <input type="date" class="form-control" id="tarikh_lahir_pelajar" placeholder="Tarikh Lahir" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>No. Telefon</label>
+                                <input type="text" class="form-control" id="notel_pelajar" placeholder="No. Telefon" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Status Warganegara</label>
+                                <select class="form-control c-select success" id="FK_warganegara_pelajar" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Gelaran</label>
+                                <select class="form-control c-select success" id="FK_gelaran_pelajar" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Bangsa</label>
+                                <select class="form-control c-select success" id="FK_bangsa_pelajar" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Etnik</label>
+                                <select class="form-control c-select success" id="FK_etnik_pelajar" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Agama</label>
+                                <select class="form-control c-select success" id="FK_agama_pelajar" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Negeri Kelahiran</label>
+                                <select class="form-control c-select success" id="FK_negeri_lahir_pelajar" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Negara Kelahiran</label>
+                                <select class="form-control c-select success" id="FK_negara_lahir_pelajar" required></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-2">
+                        <div class="row mbn-20">
+                            <div class="col-12 mb-20 mt-30">
+                                <h4>2. Maklumat Kediaman</h4>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Alamat 1</label>
+                                <input type="text" class="form-control" id="alamat1_rumah_pelajar" placeholder="Alamat 1" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Alamat 2</label>
+                                <input type="text" class="form-control" id="alamat2_rumah_pelajar" placeholder="Alamat 2" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Poskod</label>
+                                <input type="text" class="form-control" id="poskod_rumah_pelajar" placeholder="Poskod" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Daerah</label>
+                                <input type="text" class="form-control" id="daerah_rumah_pelajar" placeholder="Daerah" readonly required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Negeri</label>
+                                <input type="text" class="form-control" id="negeri_rumah_pelajar" placeholder="Negeri" readonly required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Negara</label>
+                                <input type="text" class="form-control" id="negara_rumah_pelajar" placeholder="Negara" readonly required>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-3">
+                        <div class="row mbn-20">
+                            <div class="col-12 mb-20 mt-30">
+                                <h4>3. Maklumat Institut</h4>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Nama Sekolah</label>
+                                <input type="text" class="form-control" id="nama_sekolah_pelajar" placeholder="Nama Majikan" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Alamat 1</label>
+                                <input type="text" class="form-control" id="alamat1_sekolah_pelajar" placeholder="Alamat 1" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Alamat 2</label>
+                                <input type="text" class="form-control" id="alamat2_sekolah_pelajar" placeholder="Alamat 2" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Poskod</label>
+                                <input type="text" class="form-control" id="poskod_sekolah_pelajar" placeholder="Poskod" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Daerah</label>
+                                <input type="text" class="form-control" id="daerah_sekolah_pelajar" placeholder="Daerah" readonly required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Negeri</label>
+                                <input type="text" class="form-control" id="negeri_sekolah_pelajar" placeholder="Negeri" readonly required>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-4">
+                        <div class="row mbn-20">
+                            <div class="col-12 mb-20 mt-30">
+                                <h4>4. Maklumat Kecemasan</h4>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Nama</label>
+                                <input type="text" class="form-control" id="nama_mk_pelajar" placeholder="Nama" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>No. Telefon</label>
+                                <input type="text" class="form-control" id="notel_mk_pelajar" placeholder="Kod" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-5">
+                        <div class="row mbn-20">
+                            <div class="col-12 mb-20 mt-30">
+                                <h4>5. Tetapan Katalaluan</h4>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Katalaluan</label>
+                                <input type="password" class="form-control" id="katalaluan_pelajar" placeholder="Katalaluan" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Pengesahan Katalaluan</label>
+                                <input type="password" class="form-control" id="ckatalaluan_pelajar" placeholder="Katalaluan" required>
+                            </div>
+                            <div class="col-12 mt-10"><button class="button button-primary button-outline">Daftar</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>                                                    
+        </form>
+    </div>
+</div>
+
+<!-- Plugins & Activation JS For Only This Page -->
+<script src="../assets/js/plugins/smartWizard/jquery.smartWizard.min.js"></script>
+<script src="../assets/js/plugins/smartWizard/smartWizard.active.js"></script>
+<script src="./js/pelajar.js"></script>

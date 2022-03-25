@@ -1,0 +1,116 @@
+<!-- Page Headings Start -->
+<div class="row justify-content-between align-items-center mb-10">
+
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <div class="page-heading">
+            <h3 class="title">Pentadbir <span>/ Tetapan</span><span>/ User Admin</span></h3>
+        </div>
+    </div><!-- Page Heading End -->
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <button class="button button-primary" data-toggle="modal" data-target="#reg-useradmin"><span><i class="ti-plus"></i>Daftar Rekod</span></button>
+    </div><!-- Page Heading End -->
+
+</div><!-- Page Headings End -->
+
+<div class="col-12 mb-30">
+    <div class="box">
+        <div class="box-head">
+            <h4 class="title">Senarai User Admin</h4>
+        </div>
+        <div class="box-body">
+            <div id="tableUseradmin">
+                <textarea class="hidden" id="dataList"></textarea>
+                <table id="useradminList" class="table"></table>
+              </div>
+        </div>
+    </div>
+</div><!-- Recent Transaction End -->
+
+<!-- Modal -->
+<div class="modal fade" id="reg-useradmin">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <form role="form" id="register">
+                <div class="modal-header">
+                    <h5 class="modal-title">Daftar Rekod User Admin</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="col-12 mb-20">
+                            <label for="FK_users">Pegawai</label>
+                            <input list="FK_userss" id="FK_users" class="form-control">
+                            <datalist id="FK_userss"></datalist>
+                            <input type="text" id="FK_user" class="hidden">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="FK_kampus">Kampus</label>
+                            <select tabindex="-1" aria-disabled="true" style="pointer-events: none; touch-action: none;" class="form-control c-select" required id="FK_kampus"></select>
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="FK_kluster">Kluster</label>
+                            <select tabindex="-1" aria-disabled="true" style="pointer-events: none; touch-action: none;"  class="form-control c-select" required id="FK_kluster"></select>
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="FK_unit">Unit</label>
+                            <select tabindex="-1" aria-disabled="true" style="pointer-events: none; touch-action: none;" class="form-control c-select" required id="FK_unit"></select>
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="FK_modul">Modul</label>
+                            <select class="form-control c-select" required id="FK_modul"></select>
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="button button-primary" type="submit"><i class="ti-check"></i> Simpan</button>
+                    <button class="button button-danger" data-dismiss="modal"><i class="ti-close"></i>Tutup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="update-useradmin">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <form role="form" id="update">
+                <div class="modal-header">
+                    <h5 class="modal-title">Kemaskini Rekod Useradmin</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body form-group">
+                    <p>
+                        <div class="col-12 mb-20">
+                            <label for="upt_FK_users">Pegawai</label>
+                            <select class="form-control c-select" required id="upt_FK_users"></select>
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="upt_FK_kampus">Kampus</label>
+                            <select tabindex="-1" aria-disabled="true" style="pointer-events: none; touch-action: none;" class="form-control c-select" required id="upt_FK_kampus"></select>
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="upt_FK_kluster">Kluster</label>
+                            <select tabindex="-1" aria-disabled="true" style="pointer-events: none; touch-action: none;"  class="form-control c-select" required id="upt_FK_kluster"></select>
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="upt_FK_unit">Unit</label>
+                            <select tabindex="-1" aria-disabled="true" style="pointer-events: none; touch-action: none;" class="form-control c-select" required id="upt_FK_unit"></select>
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="upt_FK_modul">Modul</label>
+                            <select class="form-control c-select" required id="upt_FK_modul"></select>
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="button button-primary" type="submit"><i class="ti-check"></i> Kemaskini</button>
+                    <button class="button button-danger" data-dismiss="modal"><i class="ti-close"></i>Tutup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="./js/ttpn_useradmin.js"></script>

@@ -1,0 +1,236 @@
+<h3>Penjawat Awam</h3>
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="kerajaan">
+        <form id="registergov">
+            <div class="smart-wizard">
+                <ul style="display: none;">
+                    <li><a href="#step-1">1. Maklumat Diri</a></li>
+                    <li><a href="#step-2">2. Maklumat Pekerjaan</a></li>
+                    <li><a href="#step-3">3. Maklumat Perkhidmatan</a></li>
+                    <li><a href="#step-4">4. Maklumat Kecemasan</a></li>
+                    <li><a href="#step-5">5. Tetapan Katalaluan</a></li>
+                </ul>   
+    
+                <div>
+                    <div id="step-1" class="active">
+                        <div class="row mbn-20">
+                            <div class="col-12 mb-20">
+                                <h4>1. Maklumat Diri</h4>
+                            </div>
+                            <div class="col-12 mb-20">
+                                <label>No. Kad Pengenalan</label>
+                                <input type="text" class="form-control" id="no_kad_pengenalan" placeholder="No K/P" required data-mask="999999999999" readonly>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Nama</label>
+                                <input type="text" class="form-control" id="nama" placeholder="Nama" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Jantina</label>
+                                <select class="form-control c-select success" id="FK_jantina" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Emel</label>
+                                <input type="text" class="form-control" id="emel" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Tarikh Lahir</label>
+                                <input type="date" class="form-control" id="tarikh_lahir" placeholder="Tarikh Lahir" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>No. Telefon</label>
+                                <input type="text" class="form-control" id="notel" placeholder="No. Telefon" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Status Warganegara</label>
+                                <select class="form-control c-select success" id="FK_warganegara" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Gelaran</label>
+                                <select class="form-control c-select success" id="FK_gelaran" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Bangsa</label>
+                                <select class="form-control c-select success" id="FK_bangsa" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Etnik</label>
+                                <select class="form-control c-select success" id="FK_etnik" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Agama</label>
+                                <select class="form-control c-select success" id="FK_agama" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Negeri Kelahiran</label>
+                                <select class="form-control c-select success" id="FK_negeri_lahir" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Negara Kelahiran</label>
+                                <select class="form-control c-select success" id="FK_negara_lahir" required></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-2">
+                        <div class="row mbn-20">
+                            <div class="col-12 mb-20">
+                                <h4>2. Maklumat Pekerjaan</h4>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Nama Jawatan</label>
+                                <input type="text" class="form-control" id="nama_jawatan" placeholder="Nama Jawatan" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Kod Jawatan</label>
+                                <input type="text" class="form-control" id="kod_jawatan" placeholder="Kod Jawatan" required>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Kategori Perkhidmatan</label>
+                                <select class="form-control c-select success" id="kategori_perkhidmatan" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Skim</label>
+                                <select class="form-control c-select success" id="skim" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Gred</label>
+                                <select class="form-control c-select success" id="gred" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Taraf Jawatan</label>
+                                <select class="form-control c-select success" id="taraf_jawatan" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Jenis Perkhidmatan</label>
+                                <select class="form-control c-select success" id="jenis_perkhidmatan" required></select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Tarikh Lantikan</label>
+                                <input type="date" class="form-control" id="tarikh_lantikan" placeholder="Kod Jawatan" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-3">
+                        <div class="row mbn-20">
+                            <div class="col-12 mb-20">
+                                <h4>3. Maklumat Perkhidmatan</h4>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Staff INTAN</label>
+                                <select class="form-control c-select success" id="users_intan" required>
+                                    <option value="">-Pilih-</option>
+                                    <option value="1">Ya</option>
+                                    <option value="0">Tidak</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 mb-20 hidden row" id="usersintan">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label for="FK_kampus">Kampus</label>
+                                    <select class="form-control c-select"  id="FK_kampus"></select>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label for="FK_kluster">Kluster</label>
+                                    <select class="form-control c-select"  id="FK_kluster"></select>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label for="FK_subkluster">Sub Kluster</label>
+                                    <select class="form-control c-select" id="FK_subkluster"></select>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label for="FK_unit">Unit</label>
+                                    <select class="form-control c-select" id="FK_unit"></select>
+                                </div>       
+                            </div>
+                            <div id="usersluar" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 mb-20 hidden row">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label for="FK_kementerian">Kementerian</label>
+                                    <select class="form-control c-select"  id="FK_kementerian"></select>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label for="FK_agensi">Agensi</label>
+                                    <select class="form-control c-select"  id="FK_agensi"></select>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label for="FK_bahagian">Bahagian</label>
+                                    <select class="form-control c-select"  id="FK_bahagian"></select>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label for="FK_ila">ILA (Jika Ada)</label>
+                                    <select class="form-control c-select" id="FK_ila"></select>
+                                </div>    
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label>Alamat 1</label>
+                                    <input type="text" class="form-control" id="alamat1_pejabat" placeholder="Alamat 1" >
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label>Alamat 2</label>
+                                    <input type="text" class="form-control" id="alamat2_pejabat" placeholder="Alamat 2" >
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label>Poskod</label>
+                                    <input type="text" class="form-control" id="poskod_pejabat" placeholder="Poskod" >
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label>Daerah</label>
+                                    <input type="text" class="form-control" id="daerah_pejabat" placeholder="Daerah" readonly >
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label>Negeri</label>
+                                    <input type="text" class="form-control" id="negeri_pejabat" placeholder="Negeri" readonly >
+                                </div> 
+                            </div> 
+                        </div>
+                    </div>
+                    <div id="step-4">
+                        <form action="#">
+                            <div class="row mbn-20">
+                                <div class="col-12 mb-20">
+                                    <h4>3. Maklumat Kecemasan</h4>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label>Nama</label>
+                                    <input type="text" class="form-control" id="nama_mk" placeholder="Nama" required>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <label>No. Telefon</label>
+                                    <input type="text" class="form-control" id="notel_mk" placeholder="Kod" required>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="step-5">
+                        <div class="row mbn-20">
+                            <div class="col-12 mb-20">
+                                <h4>4. Tetapan Katalaluan</h4>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Katalaluan</label>
+                                <input type="password" class="form-control" id="katalaluan" placeholder="Katalaluan" required>
+                                <!-- <input type="password" class="form-control" id="katalaluan" placeholder="Katalaluan" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$" required> -->
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                <label>Pengesahan Katalaluan</label>
+                                <input type="password" class="form-control" id="ckatalaluan" placeholder="Katalaluan" required>
+                            </div>
+                            <div class="adomx-checkbox-radio-group mt-10">
+                                <label class="adomx-checkbox success">
+                                    <input type="checkbox"> <i class="icon" style="vertical-align: top;"></i> 
+                                    Saya mengaku bahawa semua keterangan yang dinyatakan adalah <strong>BENAR</strong>. 
+                                    Sekiranya kenyataan yang diberikan TIDAK BENAR, INTAN berhak membatalkan sebarang 
+                                    permohonan yang dibuat.
+                                </label>
+                            </div>
+                            <div class="col-12 mt-10"><button class="button button-primary button-outline">Daftar</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Plugins & Activation JS For Only This Page -->
+<script src="../assets/js/plugins/smartWizard/jquery.smartWizard.min.js"></script>
+<script src="../assets/js/plugins/smartWizard/smartWizard.active.js"></script>
+<script src="../config.js"></script>
+<script src="kerajaan.js"></script>

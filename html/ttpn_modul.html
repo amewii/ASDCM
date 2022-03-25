@@ -1,0 +1,156 @@
+<!-- Page Headings Start -->
+<div class="row justify-content-between align-items-center mb-10">
+
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <div class="page-heading">
+            <h3 class="title">Pentadbir <span>/ Tetapan</span><span>/ Modul</span></h3>
+        </div>
+    </div><!-- Page Heading End -->
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <!-- <button class="button button-primary" data-toggle="modal" data-target="#reg-modul"><span><i class="ti-plus"></i>Daftar Rekod</span></button> -->
+    </div><!-- Page Heading End -->
+
+</div><!-- Page Headings End -->
+
+<div class="col-12 mb-30 box">
+    <div class="box" id="divModul">
+        <div class="box-head">
+            <h4 class="title">Senarai Modul</h4>
+        </div>
+        <div class="box-body">            
+            <div id="tableModul">
+                <textarea class="hidden" id="dataList"></textarea>
+                <table id="modulList" class="table"></table>
+              </div>
+        </div>
+    </div>
+</div><!-- Recent Transaction End -->
+
+<!-- Modal -->
+<div class="modal fade" id="reg-modul">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <form role="form" id="register">
+                <div class="modal-header">
+                    <h5 class="modal-title">Daftar Rekod Modul</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="col-12 mb-20">
+                            <label for="nama_modul">Nama Modul</label>
+                            <input type="text" class="form-control success" id="nama_modul" required placeholder="Nama Modul">
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="button button-primary" type="submit"><i class="ti-check"></i> Simpan</button>
+                    <button class="button button-danger" data-dismiss="modal"><i class="ti-close"></i>Tutup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="update-modul">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <form role="form" id="update">
+                <div class="modal-header">
+                    <h5 class="modal-title">Kemaskini Rekod Modul</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="col-12 mb-20">
+                            <label for="nama_modul">Nama Modul</label>
+                            <input type="text" class="hidden" id="upt_id" placeholder="Nama Modul">
+                            <input type="text" class="form-control success" id="upt_nama_modul" placeholder="Nama Modul">
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="nama_modul">Kod Modul</label>
+                            <input type="text" class="form-control success" id="upt_kod_modul" placeholder="Nama Modul">
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="button button-primary" type="submit"><i class="ti-check"></i> Kemaskini</button>
+                    <button class="button button-danger" data-dismiss="modal"><i class="ti-close"></i>Tutup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 mb-30">
+    <div class="box collapse" id="divPerincian">
+        <div class="box-head">
+            <div class="row justify-content-between align-items-center mb-10">
+                <div class="col-12 col-lg-auto mb-20">
+                    <h4 class="title">Senarai Sub Modul</h4>
+                </div>
+                <div class="col-12 col-lg-auto mb-20">
+                    <button class="nav-link button button-box button-sm button-info" id="btnKembali" value="1"  data-toggle="tooltip" data-placement="right" title="Kembali">
+                        <i class="ti-back-left"></i>
+                    </button>
+                </div>            
+            </div>
+        </div>
+        <div class="box-body light lt">
+            <div class="box">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <div class="col-sm-3"><b>Nama Modul</b></div>
+                                <div class="col-sm-9" id="nama_modult"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <div class="col-sm-3"><b>Kod Modul</b></div>
+                                <div class="col-sm-9" id="kod_modult"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="m-a-0">
+                <textarea class="hidden" id="dataDetailList"></textarea>
+                <table id="listSubmodul" class="table m-b-none"></table>                
+            </p>
+          </div>
+    </div>
+</div><!-- Recent Transaction End -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="update-per-submodul">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <form role="form" id="updatet">
+                <div class="modal-header">
+                    <h5 class="modal-title">Kemaskini Rekod Sub Modul</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="col-12 mb-20">
+                            <label for="nama_modul">Nama Sub Modul</label>
+                            <input type="text" class="hidden" id="upt_idt" placeholder="Nama Modul">
+                            <input type="text" class="form-control success" id="upt_nama_submodul" placeholder="Nama Modul">
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="button button-danger" data-dismiss="modal"><i class="ti-close"></i>Tutup</button>
+                    <button class="button button-primary" type="submit"><i class="ti-check"></i> Kemaskini</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="./js/ttpn_modul.js"></script>

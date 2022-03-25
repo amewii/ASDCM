@@ -1,0 +1,78 @@
+<!-- Page Headings Start -->
+<div class="row justify-content-between align-items-center mb-10">
+
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <div class="page-heading">
+            <h3 class="title">Sistem Admin <span>/ Pentadbir Sistem</span><span>/ Tetapan Sistem</span></h3>
+        </div>
+    </div><!-- Page Heading End -->
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <!-- <button class="button button-primary" data-toggle="modal" data-target="#reg-menu"><span><i class="ti-plus"></i>Daftar Rekod</span></button> -->
+    </div><!-- Page Heading End -->
+
+</div><!-- Page Headings End -->
+
+<div class="col-12 mb-30">
+    <div class="box">
+        <div class="box-head">
+            <h4 class="title">Tetapan Sistem</h4>
+        </div>
+        <div class="box-body">
+            <form id="update">
+                <p>
+                    <div class="row">
+                        <div class="col-sm-3 mt-10">
+                            Nama Sistem
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" id="upt_id" readonly class="form-control mb-20 hidden">
+                            <input type="text" id="nama_sistem" readonly class="form-control mb-20">
+                        </div>
+                        <div class="col-sm-3 mt-10">
+                            Versi Sistem
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" id="versi_sistem" readonly class="form-control mb-20">
+                        </div>
+                        <div class="col-sm-3 mt-10">
+                            Pelepasan Sistem
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" id="pelepasan_sistem" readonly class="form-control mb-20">
+                        </div>
+                        <div class="col-sm-3 mb-20">
+                            Status Sistem
+                        </div>
+                        <div class="col-sm-9">
+                            <label class="adomx-switch-2 success"><input type="checkbox" id="status_sistem" class="form-control mb-20"> <i class="lever"></i> <span class="text" id="text_status_sistem">Aktif</span></label>
+                        </div>
+                        <div class="col-sm-3 mt-10">
+                            Katalaluan (minimum aksara)
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" id="min_katalaluan" class="form-control mb-20">
+                        </div>
+                        <div class="col-sm-3 mb-20">
+                            Polisi Katalaluan
+                        </div>
+                        <div class="col-sm-9">
+                            <label class="adomx-switch-2 success"><input type="checkbox" id="polisi_katalaluan" class="form-control mb-20"> <i class="lever"></i> <span class="text" id="text_polisi_katalaluan">Aktif</span></label>
+                        </div>
+                        <div class="col-sm-3 mt-10">
+                            Akaun Pengguna Tamat Selepas (Hari)
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" id="active_until" class="form-control mb-20">
+                        </div>
+                        <div class="col-sm-12" align="right">
+                            <button class="button button-primary" type="submit"><i class="ti-check"></i> Simpan</button>                        
+                        </div>
+                    </div>
+                </p>
+            </form>
+        </div>
+    </div>
+</div><!-- Recent Transaction End -->
+<script src="./js/ttpn_sistem.js"></script>

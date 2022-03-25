@@ -1,0 +1,168 @@
+<!-- Page Headings Start -->
+<div class="row justify-content-between align-items-center mb-10">
+
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <div class="page-heading">
+            <h3 class="title">Pentadbir <span>/ Pengguna</span></h3>
+        </div>
+    </div><!-- Page Heading End -->
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <button class="button button-primary" id="reg-users"><span><i class="ti-plus"></i>Daftar Rekod</span></button>
+    </div><!-- Page Heading End -->
+
+</div><!-- Page Headings End -->
+
+<div class="col-12 mb-30">
+    <div class="box" id="divSenarai">
+        <div class="box-head">
+            <h4 class="title">Senarai Pengguna</h4>
+        </div>
+        <div class="box-body">     
+            
+            <ul class="nav nav-pills mb-20">
+                <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#kerajaan">Agensi Kerajaan</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#swasta">Swasta</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#pelajar">Pelajar</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="kerajaan">
+                    <div id="tablePengguna">
+                        <textarea class="hidden" id="dataListKerajaan"></textarea>
+                        <table id="usersListKerajaan" class="table"></table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="swasta">
+                    <div id="tablePengguna">
+                        <textarea class="hidden" id="dataListSwasta"></textarea>
+                        <table id="usersListSwasta" class="table"></table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pelajar">
+                    <div id="tablePengguna">
+                        <textarea class="hidden" id="dataListPelajar"></textarea>
+                        <table id="usersListPelajar" class="table"></table>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+    <div class="box collapse" id="divRegister">
+        <div class="box-head">
+            <div class="row">
+                <a id="list-users"><i class="ti-arrow-left" style="font-weight: bold;margin-left: 10px; margin-right: 10px; margin-top: 5px;"></i></a> <h4 class="title">Pendaftaran Pengguna Baharu</h4>
+            </div>
+        </div>
+        <div class="box-body">     
+            <div id="checkic">
+                <div class="login-register-form-wrap">
+
+                    <div class="content">
+                        <h1>Daftar Baharu</h1>
+                        <p>Sila masukkan nombor kad pengenalan anda untuk semakan.</p>
+                    </div>
+
+                    <div class="register-form">
+                        <form id="checkusers">
+                            <div class="row">
+                                <div class="col-12 mb-20">
+                                    <input type="text" class="form-control" id="no_kad_pengenalan_semak" placeholder="No K/P" required>
+                                </div>
+                                <div class="col-12 mt-10"><button type="submit" class="button button-primary button-outline">Semak</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="checkic2" class="hidden">
+                <div class="login-register-form-wrap">
+
+                    <div class="content">
+                        <h1>Daftar Baharu</h1>
+                        <p>Sila masukkan kategori pengguna.</p>
+                    </div>
+
+                    <div class="register-form">
+                        <form id="checkusers2">
+                            <div class="row">
+                                <div class="col-12 mb-20">
+                                    <input type="text" class="form-control" id="no_kad_pengenalan_daftar" placeholder="No K/P" required>
+                                </div>
+                                <div class="col-12 mb-20">
+                                    <select class="form-control c-select success" id="FK_jenis_pengguna"></select>
+                                </div>
+                                <div class="col-12 mt-10"><button type="submit" class="button button-primary button-outline">Daftar</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="aftercheckic" class="hidden">
+                <ul class="nav nav-pills mb-15" style="display: none;">
+                    <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#kerajaan">Agensi Kerajaan</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#swasta">Swasta</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#pelajar">Pelajar</a></li>
+                </ul>
+                <div id="contentRegister">                                     
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div><!-- Recent Transaction End -->
+
+<!-- Modal -->
+<div class="modal fade" id="reg-pengguna">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <form role="form" id="register">
+                <div class="modal-header">
+                    <h5 class="modal-title">Daftar Rekod Pengguna</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="col-12 mb-20">
+                            <label for="nama_pengguna">Nama Pengguna</label>
+                            <input type="text" class="form-control success" id="nama_pengguna" required placeholder="Nama Pengguna">
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="button button-danger" data-dismiss="modal"><i class="ti-close"></i>Tutup</button>
+                    <button class="button button-primary" type="submit"><i class="ti-check"></i> Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="update-pengguna">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <form role="form" id="update">
+                <div class="modal-header">
+                    <h5 class="modal-title">Kemaskini Rekod Pengguna</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="col-12 mb-20">
+                            <label for="nama_pengguna">Nama Pengguna</label>
+                            <input type="text" class="hidden" id="upt_id" placeholder="Nama Pengguna">
+                            <input type="text" class="form-control success" id="upt_nama_pengguna" placeholder="Nama Pengguna">
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="button button-primary" type="submit"><i class="ti-check"></i> Kemaskini</button>
+                    <button class="button button-danger" data-dismiss="modal"><i class="ti-close"></i>Tutup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="./js/senarai_pengguna.js"></script>
