@@ -140,7 +140,7 @@
                                                     <li class="hidden"><a id=""><i class="zmdi zmdi-wallpaper"></i>Aktiviti</a></li>
                                                 </ul>
                                                 <ul>
-                                                    <li class="hidden"><a id=""><i class="zmdi zmdi-settings"></i>Tetapan Pengguna</a></li>
+                                                    <li><a id="editprofile"><i class="zmdi zmdi-settings"></i>Edit Profile</a></li>
                                                     <li><a id="logKeluar"><i class="zmdi zmdi-lock-open"></i>Log Keluar</a></li>
                                                 </ul>
                                             </div>
@@ -167,20 +167,22 @@
                 <nav class="side-header-menu" id="side-header-menu">
                     <ul>
                         <li style="margin-bottom: 10px;"><a id="home"><i style="font-size: large;" class="ti-home"></i> <span style="font-size: large;">Laman Utama</span></a></li>
-                        <li style="margin-bottom: 10px;" class="has-sub-menu"><a id="sysadmin"></a>
+                        <li style="margin-bottom: 10px;" class="has-sub-menu hidden" id="control_sysadmin"><a id="sysadmin"></a>
                             <ul class="side-header-sub-menu">
-                                <li class="has-sub-menu"><a id="pentadbir_sistem"></a>
+                                <li class="has-sub-menu hidden" id="control_pentadbir_sistem"><a id="pentadbir_sistem"></a>
                                     <ul class="side-header-sub-menu">
-                                        <li class="has-sub-menu"><a id="ttpn_nama_menu"></a></li>
-                                        <li class="has-sub-menu"><a id="ttpn_sistem"></a></li>
+                                        <li class="has-sub-menu hidden"><a id="ttpn_nama_menu"></a></li>
+                                        <li class="has-sub-menu hidden"><a id="ttpn_sistem"></a></li>
                                         <li class="has-sub-menu hidden"><a id="ttpn_kumpulan_pengguna"></a></li>
-                                        <li class="has-sub-menu"><a id="ttpn_capaian"></a></li>
-                                        <li class="has-sub-menu"><a id="senarai_pengguna"></a></li>
-                                        <li class="has-sub-menu"><a id="ttpn_useradmin"></a></li>
-                                        <li class="has-sub-menu"><a id="log"></a></li>
+                                        <li class="has-sub-menu hidden"><a id="ttpn_capaian"></a></li>
+                                        <li class="has-sub-menu hidden"><a id="ttpn_useradmin"></a></li>
+
+                                        <li class="has-sub-menu hidden" id="control_senarai_pengguna"><a id="senarai_pengguna"></a></li>
+                                        <li class="has-sub-menu hidden" id="control_ttpn_peranancapaian"><a id="ttpn_peranancapaian"></a></li>
+                                        <li class="has-sub-menu hidden" id="control_log"><a id="log"></a></li>
                                     </ul>
                                 </li>
-                                <li class="has-sub-menu"><a id="master_induk"></a>
+                                <li class="has-sub-menu hidden"><a id="master_induk"></a>
                                     <ul class="side-header-sub-menu">
                                         <li class="has-sub-menu"><a id="ttpn_agama"></a></li>
                                         <li class="has-sub-menu"><a id="ttpn_bangsa"></a></li>
@@ -197,9 +199,9 @@
                                 </li>
                             </ul>
                         </li>
-                        <li style="margin-bottom: 10px;" class="has-sub-menu"><a id="media"></a>
+                        <li style="margin-bottom: 10px;" class="has-sub-menu hidden" id="control_media"><a id="media"></a>
                             <ul class="side-header-sub-menu">
-                                <li class="has-sub-menu"><a id="tetapan_media"></a>
+                                <li class="has-sub-menu hidden" id="control_tetapan_media"><a id="tetapan_media"></a>
                                     <ul class="side-header-sub-menu">
                                         <li class="has-sub-menu"><a id="ttpn_med_format"></a></li>
                                         <li class="has-sub-menu"><a id="ttpn_med_kategori"></a></li>
@@ -208,8 +210,14 @@
                                         <li class="has-sub-menu"><a id="ttpn_vip"></a></li>
                                     </ul>
                                 </li>
-                                <li class="has-sub-menu"><a id="med_program"></a></li>
-                                <li class="has-sub-menu"><a id="med_permohonan"></a></li>
+                                <li class="has-sub-menu hidden" id="control_med_program"><a id="med_program"></a></li>
+                                <li class="has-sub-menu hidden" id="control_med_permohonan"><a id="med_permohonan"></a></li>
+                                <li class="has-sub-menu hidden" id="control_laporan_media"><a id="laporan_media"></a>
+                                    <ul class="side-header-sub-menu">
+                                        <li class="has-sub-menu"><a id="med_laporan_program"></a></li>
+                                        <li class="has-sub-menu"><a id="med_laporan_permohonan"></a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                         <!-- <li style="margin-bottom: 10px;" class="has-sub-menu"><a id="home"><i style="font-size: large;" class="zmdi zmdi-accounts"></i> <span style="font-size: large;">Pentadbir</span></a>
@@ -456,7 +464,6 @@
 
     <!-- UploadImg -->
     <script src="assets/js/vendor/fileup.min.js"></script>
-
     <!--Main JS-->
     <script src="assets/js/main.js"></script>
     <script src="config.js"></script>
