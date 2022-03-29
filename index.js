@@ -1,3 +1,43 @@
+var settings = {
+    "url": host + "api_pentadbir/public/capaian/"+window.sessionStorage.id,
+    "method": "GET",
+    "timeout": 0,
+};
+
+$.ajax(settings).done(function (response) {
+    if (window.sessionStorage.FK_capaian.indexOf('R1') >= 0)    {
+        $('#control_media').removeClass('hidden');
+        $('#control_tetapan_media').removeClass('hidden');
+    }
+    if (window.sessionStorage.FK_capaian.indexOf('R2') >= 0)    {
+        $('#control_media').removeClass('hidden');
+        $('#control_med_program').removeClass('hidden');
+    }
+    if (window.sessionStorage.FK_capaian.indexOf('R3') >= 0)    {
+        $('#control_media').removeClass('hidden');
+        $('#control_med_permohonan').removeClass('hidden');
+    }
+    if (window.sessionStorage.FK_capaian.indexOf('R4') >= 0)    {
+        $('#control_media').removeClass('hidden');
+        $('#control_laporan_media').removeClass('hidden');
+    }
+    if (window.sessionStorage.FK_capaian.indexOf('R5') >= 0)    {
+        $('#control_sysadmin').removeClass('hidden');
+        $('#control_pentadbir_sistem').removeClass('hidden');
+        $('#control_senarai_pengguna').removeClass('hidden');
+    }
+    if (window.sessionStorage.FK_capaian.indexOf('R6') >= 0)    {
+        $('#control_sysadmin').removeClass('hidden');
+        $('#control_pentadbir_sistem').removeClass('hidden');
+        $('#control_ttpn_peranancapaian').removeClass('hidden');
+    }
+    if (window.sessionStorage.FK_capaian.indexOf('R7') >= 0)    {
+        $('#control_sysadmin').removeClass('hidden');
+        $('#control_pentadbir_sistem').removeClass('hidden');
+        $('#control_log').removeClass('hidden');
+    }
+});
+
 $(document).ready(function(){
     let content = window.sessionStorage.content;
     let token = window.sessionStorage.token;
@@ -18,7 +58,7 @@ var settings = {
     "url": host + "api_media/public/permohonanStatus/1",
     "method": "GET",
     "timeout": 0,
-  };
+};
 
 $.ajax(settings).done(function (response) {
     let bil = 0;
@@ -143,6 +183,12 @@ $("#ttpn_useradmin").click(function () {
     $('#content').load('html/ttpn_useradmin.html');
 });
 
+$("#ttpn_peranancapaian").click(function () {
+    window.sessionStorage.content = "html/ttpn_peranancapaian";
+    saveLog(window.sessionStorage.id,"View Tetapan Peranan & Capaian.",window.sessionStorage.browser);
+    $('#content').load('html/ttpn_peranancapaian.html');
+});
+
 $("#log").click(function () {
     window.sessionStorage.content = "html/log";
     saveLog(window.sessionStorage.id,"View Log Sistem.",window.sessionStorage.browser);
@@ -219,6 +265,24 @@ $("#med_permohonan").click(function () {
     window.sessionStorage.content = "html/med_permohonan";
     saveLog(window.sessionStorage.id,"View Permohonan Media.",window.sessionStorage.browser);
     $('#content').load('html/med_permohonan.html');
+});
+
+$("#editprofile").click(function () {
+    window.sessionStorage.content = "html/editprofile";
+    saveLog(window.sessionStorage.id,"View Profile.",window.sessionStorage.browser);
+    $('#content').load('html/editprofile.html');
+});
+
+$("#med_laporan_program").click(function () {
+    window.sessionStorage.content = "html/med_laporan_program";
+    saveLog(window.sessionStorage.id,"View Laporan Program.",window.sessionStorage.browser);
+    $('#content').load('html/med_laporan_program.html');
+});
+
+$("#med_laporan_permohonan").click(function () {
+    window.sessionStorage.content = "html/med_laporan_permohonan";
+    saveLog(window.sessionStorage.id,"View Laporan Permohonan.",window.sessionStorage.browser);
+    $('#content').load('html/med_laporan_permohonan.html');
 });
 
 function viewPermohonan(){   

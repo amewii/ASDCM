@@ -51,6 +51,7 @@ $("#login").on('submit', function (e) {
                 sessionStorage.nama = result.data.nama;
                 sessionStorage.FK_kluster = result.data.FK_kluster;
                 sessionStorage.emel = result.data.emel;
+                sessionStorage.FK_capaian = result.data.FK_capaian;
                 sessionStorage.browser = getBrowser();
                 saveLog(result.data.id, "Login.", window.sessionStorage.browser);
                 window.location.replace("../"); 

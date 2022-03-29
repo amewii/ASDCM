@@ -1,0 +1,118 @@
+<div class="col-xlg-12 col-12 mb-50">
+    <div class="box">
+
+        <div class="box-head">
+            <h3 class="title">Carian</h3>
+        </div>
+
+        <div class="box-body">
+            <div class="accordion" id="laporanProgram">
+
+                <!--Card Start-->
+                <div class="card">
+
+                    <!--Card Header Start-->
+                    <div class="card-header">
+                        <h2><button data-toggle="collapse" data-target="#collapseCarian">Carian</button></h2>
+                    </div>
+                    <!--Card Header End-->
+
+                    <!--Collapse Start-->
+                    <div id="collapseCarian" class="collapse show" data-parent="#laporanProgram">
+                        <div class="card-body">                            
+                            <form role="form" id="carian">
+                                <div class="row mbn-20">
+                                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <label for="FK_kategori">Kategori Program</label>
+                                        <select class="form-control c-select success" id="FK_kategori"></select>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <label>Nama Program</label>
+                                        <input list="nama_programss" id="nama_programs" class="form-control">
+                                        <datalist id="nama_programss"></datalist>
+                                        <input type="text" id="nama_program" class="hidden">
+                                    </div>
+                                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                                <label for="tarikh_mula">Tarikh Mula</label>
+                                                <input type="date" class="form-control" id="tarikh_mula" placeholder="Tarikh Mula">
+                                            </div>
+                                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                                <label for="tarikh_akhir">Tarikh Akhir</label>
+                                                <input type="date" class="form-control" id="tarikh_akhir" placeholder="Tarikh Akhir">
+                                            </div>
+                                        </div>                        
+                                    </div>                    
+                                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <label for="FK_kampus">Kampus</label>
+                                        <select class="form-control c-select success" id="FK_kampus"></select>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <label for="FK_kluster">Kluster</label>
+                                        <select class="form-control c-select success" id="FK_kluster"></select>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <label for="tahun_program">Tahun Program</label>
+                                        <select class="form-control c-select success" id="tahun_program"></select>
+                                    </div>
+                                    <div class="col-12 mb-20">
+                                        <input type="submit" class="button button-success" value="Cari">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--Collapse End-->
+
+                </div>
+                <!--Card End-->
+
+                <!--Card Start-->
+                <div class="card">
+
+                    <!--Card Header Start-->
+                    <div class="card-header">
+                        <h2><button class="collapsed" data-toggle="collapse" data-target="#collapseMaklumat">Maklumat Carian</button></h2>
+                    </div>
+                    <!--Card Header End-->
+
+                    <!--Collapse Start-->
+                    <div id="collapseMaklumat" class="collapse" data-parent="#laporanProgram">
+                        <div class="card-body">
+                            <div id="tableProgram">
+                                <textarea class="hidden" id="dataListProgram"></textarea>
+                                <table id="listProgram" class="table"></table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Collapse End-->
+
+                </div>
+                <!--Card End-->
+
+                <!--Card Start-->
+                <div class="card">
+
+                    <!--Card Header Start-->
+                    <div class="card-header">
+                        <h2><button class="collapsed" data-toggle="collapse" data-target="#collapseCarta">Carta</button></h2>
+                    </div>
+                    <!--Card Header End-->
+
+                    <!--Collapse Start-->
+                    <div id="collapseCarta" class="collapse" data-parent="#laporanProgram">
+                        <div class="card-body">
+                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird.</p>
+                        </div>
+                    </div>
+                    <!--Collapse End-->
+
+                </div>
+                <!--Card End-->
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/med_laporan_program.js"></script>

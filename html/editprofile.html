@@ -1,0 +1,111 @@
+<!-- <div class="row mbn-50"> -->
+
+    <!--Author Top Start-->
+    <form id="update">
+        <div class="col-12 mb-50">
+            <div class="author-top">
+                <div class="inner">
+                    <div class="author-profile">
+                        <div class="image">
+                            <img src="assets/images/avatar/profile.jpg" class="d-none" alt="">
+                            <h2>MH</h2>
+                            <button class="edit"><i class="zmdi zmdi-cloud-upload"></i>Change Image</button>
+                        </div>
+                        <div class="info">
+                            <h5 id="displaynama"></h5>
+                            <span id="displayjawatan"></span>
+                            <a href="#" class="edit"><i class="zmdi zmdi-edit"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Author Top End-->
+
+        <!--Timeline / Activities Start-->
+        <div class="col-xlg-12 col-12 mb-50">
+            <div class="box">
+
+                <div class="box-head">
+                    <h3 class="title">Maklumat Diri</h3>
+                </div>
+
+                <div class="box-body">
+                    <div class="smart-wizard">
+                        <div>
+                            <div id="step-1" class="active">
+                                <div class="row mbn-20">
+                                    <div class="col-12 mb-20 mt-20">
+                                        <h4>1. Maklumat Diri</h4>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <label>No. Kad Pengenalan</label>
+                                        <input type="text" class="form-control" id="displayno_kad_pengenalan" placeholder="No K/P" required data-mask="999999999999" readonly>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <label>Emel</label>
+                                        <input class="form-control" id="displayemel" readonly></select>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <label>Tarikh Lahir</label>
+                                        <input type="date" class="form-control" id="displaytarikhlahir" placeholder="Tarikh Lahir" readonly>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <label>No. Telefon</label>
+                                        <input type="text" class="form-control" id="notel" placeholder="No. Telefon" required>
+                                    </div>                                        
+                                </div>
+                            </div>
+                            <div id="step-2">
+                                <div class="row mbn-20">
+                                    <div class="col-12 mb-20 mt-30">
+                                        <h4>2. Maklumat Kecemasan</h4>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <label>Nama</label>
+                                        <input type="text" class="form-control" id="displaynamamk" placeholder="Nama">
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <label>No. Telefon</label>
+                                        <input type="text" class="form-control" id="displaynotelmk" placeholder="Kod" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="step-3" class="hidden">
+                                <div class="row mbn-20">
+                                    <div class="col-12 mb-20 mt-30">
+                                        <h4>3. Tukar Katalaluan</h4>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <label>Katalaluan Lama</label>
+                                        <input type="password" class="form-control" id="katalaluan" placeholder="Katalaluan">
+                                        <!-- <input type="password" class="form-control" id="katalaluan" placeholder="Katalaluan" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$" required> -->
+                                    </div>
+                                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <label>Katalaluan Baharu</label>
+                                        <input type="password" class="form-control" id="newkatalaluan" placeholder="Katalaluan">
+                                    </div>   
+                                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                        <label>Pengesahan Katalaluan</label>
+                                        <input type="password" class="form-control" id="ckatalaluan" placeholder="Katalaluan">
+                                    </div>
+                                </div>
+                            </div>                            
+                            <div id="step-4">         
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 mb-20">
+                                    <div class="row">
+                                        <div class="mt-20 mr-5" id="divubahkatalaluan"><a class="button button-danger" id="ubahkatalaluan" style="color: white;">Ubah Katalaluan</a></div> 
+                                        <div class="mt-20"><button class="button button-primary button-outline">Hantar</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--Timeline / Activities End-->
+
+<!-- </div> -->
+<script src="./js/editprofile.js"></script>
