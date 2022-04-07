@@ -11,6 +11,7 @@
     <div class="col-12 col-lg-auto mb-20">
         <span id="buttonPeranan"><button class="button button-primary" data-toggle="modal" data-target="#reg-peranan"><span><i class="ti-plus"></i>Daftar Peranan</span></button></span>
         <span id="buttonCapaian" class="hidden"><button class="button button-primary" data-toggle="modal" data-target="#reg-capaian"><span><i class="ti-plus"></i>Daftar Capaian</span></button></span>
+        <span id="buttonPengguna" class="hidden"><button class="button button-primary" data-toggle="modal" data-target="#reg-capaian"><span><i class="ti-plus"></i>Daftar Pengguna</span></button></span>
     </div><!-- Page Heading End -->
 
 </div><!-- Page Headings End -->
@@ -24,7 +25,8 @@
             
             <ul class="nav nav-pills mb-20">
                 <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#dataPeranan" id="peranan">Peranan</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#dataCapaian" id="capaian">Capaian</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#dataCapaian" id="capaian">Capaian</a></li> -->
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#dataPengguna" id="pengguna">Pengguna</a></li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="dataPeranan">
@@ -37,6 +39,12 @@
                     <div id="tablePengguna">
                         <textarea class="hidden" id="dataListCapaian"></textarea>
                         <table id="listCapaian" class="table"></table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="dataPengguna">
+                    <div id="tablePengguna">
+                        <textarea class="hidden" id="dataListPengguna"></textarea>
+                        <table id="listPengguna" class="table"></table>
                     </div>
                 </div>
             </div>   
@@ -93,19 +101,19 @@
                         </div>
                         <div class="col-12 mb-20">
                             <label for="FK_kampus">Kampus</label>
-                            <select tabindex="-1" aria-disabled="true" style="pointer-events: none; touch-action: none;" class="form-control c-select" id="FK_kampus"></select>
+                            <select tabindex="-1" aria-disabled="true" class="form-control c-select" id="FK_kampus"></select>
                         </div>
                         <div class="col-12 mb-20">
                             <label for="FK_kluster">Kluster</label>
-                            <select tabindex="-1" aria-disabled="true" style="pointer-events: none; touch-action: none;"  class="form-control c-select" id="FK_kluster"></select>
+                            <select tabindex="-1" aria-disabled="true"  class="form-control c-select" id="FK_kluster"></select>
                         </div>
                         <div class="col-12 mb-20">
                             <label for="FK_subkluster">Kluster</label>
-                            <select tabindex="-1" aria-disabled="true" style="pointer-events: none; touch-action: none;"  class="form-control c-select" id="FK_subkluster"></select>
+                            <select tabindex="-1" aria-disabled="true"  class="form-control c-select" id="FK_subkluster"></select>
                         </div>
                         <div class="col-12 mb-20">
                             <label for="FK_unit">Unit</label>
-                            <select tabindex="-1" aria-disabled="true" style="pointer-events: none; touch-action: none;" class="form-control c-select" id="FK_unit"></select>
+                            <select tabindex="-1" aria-disabled="true" class="form-control c-select" id="FK_unit"></select>
                         </div>
                         <div class="col-12 mb-20">
                             <label for="FK_peranan">Peranan</label>

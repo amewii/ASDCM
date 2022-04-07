@@ -179,7 +179,7 @@ $("#registergov").on('submit', function (e) {
                             
                             // sessionStorage.token = result.token;
                             // sessionStorage.no_kad_pengenalan = result.no_kad_pengenalan;
-                            window.location.replace("../../media/login");                
+                            window.location.replace("../../user/login");                
                         });
                     });
                 });
@@ -569,7 +569,7 @@ var settings = {
 
 //Dropdown Skim List
 var settings = {
-    "url": host+"api_pengguna/public/skimsList",
+    "url": host+"api_pentadbir/public/skimsList",
     "method": "GET",
     "timeout": 0,
     // "header":{
@@ -596,7 +596,7 @@ var settings = {
 
 //Dropdown Gred List
 var settings = {
-    "url": host+"api_pengguna/public/gredsList",
+    "url": host+"api_pentadbir/public/gredsList",
     "method": "GET",
     "timeout": 0,
     // "header":{
@@ -623,7 +623,7 @@ var settings = {
 
 //Dropdown Tarafjawatan List
 var settings = {
-    "url": host+"api_pengguna/public/tarafjawatansList",
+    "url": host+"api_pentadbir/public/tarafjawatansList",
     "method": "GET",
     "timeout": 0,
     // "header":{
@@ -650,7 +650,7 @@ var settings = {
 
 //Dropdown Jenis Perkhidmatan List
 var settings = {
-    "url": host+"api_pengguna/public/jenisperkhidmatansList",
+    "url": host+"api_pentadbir/public/jenisperkhidmatansList",
     "method": "GET",
     "timeout": 0,
     // "header":{
@@ -677,7 +677,7 @@ var settings = {
 
 //Dropdown Kategori Perkhidmatan List
 var settings = {
-    "url": host+"api_pengguna/public/kategoriperkhidmatansList",
+    "url": host+"api_pentadbir/public/kategoriperkhidmatansList",
     "method": "GET",
     "timeout": 0,
     // "header":{

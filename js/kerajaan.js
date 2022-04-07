@@ -99,7 +99,7 @@ $("#registergov").on('submit', function (e) {
                 let alamat1_pejabat = $('#alamat1_pejabat').val();
                 let alamat2_pejabat = $('#alamat2_pejabat').val();
                 let poskod_pejabat = $('#poskod_pejabat').val();
-                let bandar_pejabat = $('#bandar_pejabat').val();
+                let daerah_pejabat = $('#daerah_pejabat').val();
                 let negeri_pejabat = $('#negeri_pejabat').val();
                 
                 var formgov = new FormData();
@@ -125,7 +125,7 @@ $("#registergov").on('submit', function (e) {
                 formgov.append("alamat1_pejabat", alamat1_pejabat);
                 formgov.append("alamat2_pejabat", alamat2_pejabat);
                 formgov.append("poskod_pejabat", poskod_pejabat);
-                formgov.append("bandar_pejabat", bandar_pejabat);
+                formgov.append("daerah_pejabat", daerah_pejabat);
                 formgov.append("negeri_pejabat", negeri_pejabat);
                 formgov.append("statusrekod", "1");
 
@@ -569,7 +569,7 @@ var settings = {
 
 //Dropdown Skim List
 var settings = {
-    "url": host+"api_pengguna/public/skimsList",
+    "url": host+"api_pentadbir/public/skimsList",
     "method": "GET",
     "timeout": 0,
     // "header":{
@@ -596,7 +596,7 @@ var settings = {
 
 //Dropdown Gred List
 var settings = {
-    "url": host+"api_pengguna/public/gredsList",
+    "url": host+"api_pentadbir/public/gredsList",
     "method": "GET",
     "timeout": 0,
     // "header":{
@@ -623,7 +623,7 @@ var settings = {
 
 //Dropdown Tarafjawatan List
 var settings = {
-    "url": host+"api_pengguna/public/tarafjawatansList",
+    "url": host+"api_pentadbir/public/tarafjawatansList",
     "method": "GET",
     "timeout": 0,
     // "header":{
@@ -650,7 +650,7 @@ var settings = {
 
 //Dropdown Jenis Perkhidmatan List
 var settings = {
-    "url": host+"api_pengguna/public/jenisperkhidmatansList",
+    "url": host+"api_pentadbir/public/jenisperkhidmatansList",
     "method": "GET",
     "timeout": 0,
     // "header":{
@@ -677,7 +677,7 @@ var settings = {
 
 //Dropdown Kategori Perkhidmatan List
 var settings = {
-    "url": host+"api_pengguna/public/kategoriperkhidmatansList",
+    "url": host+"api_pentadbir/public/kategoriperkhidmatansList",
     "method": "GET",
     "timeout": 0,
     // "header":{

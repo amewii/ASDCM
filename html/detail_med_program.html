@@ -57,6 +57,10 @@
                                     <ul>
                                         <span id="disp_nama_unit"></span>
                                     </ul>
+                                    <h6 class="mb-10">Senarai VIP</h6>
+                                    <ul>
+                                        <span id="disp_vip"></span>
+                                    </ul>
                                 </div>
                                 <!--Billing Info End-->
                             </div>
@@ -163,10 +167,14 @@
                     </div>
                     <div class="modal-body">                        
                         <div class="col-12 mb-20">
-                            <div id="imgTags" align="center"></div>
-                            <label for="FK_users">Nama VIP</label>
-                            <input list="FK_userss" id="FK_users" class="form-control">
+                            <div class="watermark">
+                                <div id="imgTags" align="center"></div>
+                            </div>
+                            <label for="listvip" class="mt-2">Nama VIP</label>
+                            <input list="FK_userss" id="listvip" class="form-control">
                             <datalist id="FK_userss"></datalist>
+                            <br/>
+                            <textarea class="form-control" id="FK_users" placeholder="Textarea"></textarea>
                             <input type="text" id="FK_user" class="hidden">
                             <input type="text" id="imgText" class="hidden">
                         </div>

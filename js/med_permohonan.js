@@ -49,7 +49,7 @@ $.ajax(settings).done(function (response) {
         if (field.status_permohonan == '2')   {
             if (t_luput - now < 0)  {
                 var form = new FormData();
-                form.append("id", field.PK);
+                form.append("id", field.id_permohonan);
                 form.append("status_permohonan","5");
                 var settings = {
                     "url": host + "api_media/public/permohonanLuput",
@@ -101,6 +101,7 @@ $.ajax(settings).done(function (response) {
 });
 
 function loadData(indexs){   
+    
     let data = JSON.parse($("#dataList").val());
     var t_luput = new Date();
     var t_pengesahan = new Date();    
@@ -108,7 +109,7 @@ function loadData(indexs){
     document.getElementById("disp_nama").innerHTML=data[indexs].nama;
     document.getElementById("disp_tarikh_permohonan").innerHTML=t_permohonan.getDate() + "/" + (t_permohonan.getMonth() + 1) + "/" + t_permohonan.getFullYear();
     
-    $('#upt_id').val(data[indexs].PK);   
+    $('#upt_id').val(data[indexs].id_permohonan);   
     $('#upt_status_permohonan').val(data[indexs].status_permohonan);   
     $('#upt_tarikh_pengesahan').val(t_pengesahan.getFullYear() + "-" + (t_pengesahan.getMonth() + 1) + "-" + t_pengesahan.getDate());
     $('#upt_tarikh_luput').val(t_luput.getFullYear() + "-" + (t_luput.getMonth() + 1) + "-" + t_luput.getDate());   
@@ -148,6 +149,7 @@ $("#update").on('submit',function(e){
             allowOutsideClick: false,
             html: false
         }).then(function(){ 
+            
             let upt_id = $("#upt_id").val();
             let upt_status_permohonan = $("#upt_status_permohonan").val();
             let upt_tarikh_pengesahan = $("#upt_tarikh_pengesahan").val();
@@ -155,7 +157,7 @@ $("#update").on('submit',function(e){
             let upt_tempoh = $("#upt_tempoh").val();
             let upt_pegawai_pelulus = $("#upt_pegawai_pelulus").val();
             let upt_updated_by = $("#upt_updated_by").val();
-
+            
             var param = {
                 twmTitle: upt_id,
                 twmDescription: upt_tarikh_pengesahan,
@@ -163,9 +165,10 @@ $("#update").on('submit',function(e){
                 twmEdate: upt_tempoh,
                 twmYear: upt_updated_by,
             }
+            
             console.log(param);
             var form = new FormData();
-            form.append("id", upt_id);
+            form.append("id_permohonan", upt_id);
             form.append("status_permohonan",upt_status_permohonan);
             form.append("tarikh_pengesahan",upt_tarikh_pengesahan);
             form.append("tarikh_luput",upt_tarikh_luput);
@@ -300,7 +303,7 @@ var settings = {
         }));
         $.each(response.data, function (i, item) {
             $('#upt_status_permohonan').append($('<option>', { 
-                value: item.id,
+                value: item.id_status,
                 text : item.nama_status 
             }));
         });

@@ -165,7 +165,7 @@ $("#registerswasta").on('submit', function (e) {
                             
                             // sessionStorage.token = result.token;
                             // sessionStorage.no_kad_pengenalan = result.no_kad_pengenalan;
-                            window.location.replace("../login/");
+                            window.location.replace("../../user/login");
                 
                         });
                     });

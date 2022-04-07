@@ -11,6 +11,7 @@ var colums = [
     { "name": "nama", "title": "Nama" },
     { "name": "action_made", "title": "Perkara", "breakpoints": "md sm xs" },
     { "name": "logsTime", "title": "Masa", "breakpoints": "md sm xs" },
+    { "name": "browser_name", "title": "Alamat IP", "breakpoints": "md sm xs" },
     // { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
     // {"name":"status","title":"Status","breakpoints":"sm xs"}
 ];
@@ -27,8 +28,11 @@ $.ajax(settings).done(function (response) {
     let bil = 1;
 
     $.each(response.data, function (i, field) {
+        time = new Date(field.logsTime);
         list.push({
-            id: field.id, nama: field.nama, action_made: field.action_made, logsTime: field.logsTime, bil: bil++
+            id: field.id_log, nama: field.nama, action_made: field.action_made, 
+            logsTime: field.logsTime, browser_name: field.browser_name, 
+            bil: bil++
         });
     });
 

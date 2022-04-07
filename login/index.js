@@ -1,4 +1,4 @@
-sessionStorage.url = '../../ASDCM/login';
+sessionStorage.url = '../../admin/login';
 window.sessionStorage.removeItem("no_kad_pengenalan");
 window.sessionStorage.removeItem("FK_jenis_pengguna");
 window.sessionStorage.removeItem("content");
@@ -27,12 +27,8 @@ $("#login").on('submit', function (e) {
         };
 
         $.ajax(settings).done(function (response) {
-            // console.log(response);
             result = JSON.parse(response);
-            // console.log(result);
             if (!result.success) {
-                // Swal(result.message, result.data, "error");
-                // return;
                 swal({
                     title: "Log Masuk",
                     text: result.data,
@@ -45,7 +41,7 @@ $("#login").on('submit', function (e) {
                     window.location.reload();      
                 });
             } else  {
-                sessionStorage.id = result.data.PK;
+                sessionStorage.id = result.data.id_users;
                 sessionStorage.token = result.data.token;
                 sessionStorage.no_kad_pengenalan = result.data.no_kad_pengenalan;
                 sessionStorage.nama = result.data.nama;
@@ -53,7 +49,7 @@ $("#login").on('submit', function (e) {
                 sessionStorage.emel = result.data.emel;
                 sessionStorage.FK_capaian = result.data.FK_capaian;
                 sessionStorage.browser = getBrowser();
-                saveLog(result.data.id, "Login.", window.sessionStorage.browser);
+                saveLog(result.data.id_users, "Login.", window.sessionStorage.browser);
                 window.location.replace("../"); 
             }
         });
