@@ -49,13 +49,17 @@
                         </div>
                         <div class="col-md-6 mb-20">
                             <label for="FK_kluster">Nama Kampus</label>
-                            <select class="form-control c-select success" id="FK_kampus"></select>
+                            <select class="form-control c-select success" required id="FK_kampus"></select>
                         </div>
-                        <div class="col-md-6 mb-20">
+                        <div class="col-md-6 mb-20 hidden" id="divFK_kluster">
                             <label for="FK_kluster">Nama Kluster</label>
-                            <select class="form-control c-select success" id="FK_kluster"></select>
+                            <select class="form-control c-select success" required id="FK_kluster"></select>
                         </div>
-                        <div class="col-md-6 mb-20">
+                        <div class="col-md-6 mb-20 hidden" id="divFK_subkluster">
+                            <label for="FK_kluster">Nama Subkluster</label>
+                            <select class="form-control c-select success" id="FK_subkluster"></select>
+                        </div>
+                        <div class="col-md-6 mb-20 hidden" id="divFK_unit">
                             <label for="FK_unit">Nama Unit</label>
                             <select class="form-control c-select success" id="FK_unit"></select>
                         </div>
@@ -66,8 +70,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="button button-danger" data-dismiss="modal"><i class="ti-close"></i>Tutup</button>
                     <button class="button button-primary" type="submit"><i class="ti-check"></i> Simpan</button>
+                    <button class="button button-danger" data-dismiss="modal"><i class="ti-close"></i>Tutup</button>
                 </div>
             </form>
         </div>
@@ -96,13 +100,17 @@
                         </div>
                         <div class="col-12 mb-20">
                             <label for="upt_FK_kampus">Nama Kampus</label>
-                            <select class="form-control c-select success" id="upt_FK_kampus"></select>
+                            <select class="form-control c-select success" required id="upt_FK_kampus"></select>
                         </div>
-                        <div class="col-12 mb-20">
+                        <div class="col-12 mb-20" id="upt_divFK_kluster">
                             <label for="upt_FK_kluster">Nama Kluster</label>
-                            <select class="form-control c-select success" id="upt_FK_kluster"></select>
+                            <select class="form-control c-select success" required id="upt_FK_kluster"></select>
                         </div>
-                        <div class="col-12 mb-20">
+                        <div class="col-12 mb-20" id="upt_divFK_subkluster">
+                            <label for="FK_kluster">Nama Subkluster</label>
+                            <select class="form-control c-select success" id="upt_FK_subkluster"></select>
+                        </div>
+                        <div class="col-12 mb-20" id="upt_divFK_unit">
                             <label for="upt_FK_unit">Nama Unit</label>
                             <select class="form-control c-select success" id="upt_FK_unit"></select>
                         </div>

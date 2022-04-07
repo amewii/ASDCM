@@ -1,4 +1,9 @@
-// var imglist = [];
+$(function () {
+    $.ajaxSetup({
+        cache: false
+    });
+    onPageLoad();
+});
 
 $.fileup({
     // url: 'file/upload',
@@ -15,8 +20,6 @@ $.fileup({
         }
     },
     onSuccess: function(response, file_number, file) {
-        // console.log(file.name+" - "+"success,");
-        // console.log(file_number);
         var file_data = file;   
         var form_data = new FormData();                  
         form_data.append('file', file_data);
@@ -42,18 +45,8 @@ $.fileup({
         imglist.push({images: window.sessionStorage.med_program_id + "_" + file.name});
         $('#dataList').val(JSON.stringify(JSON.stringify(imglist)));
         // console.log(imglist)
-        var form_upload = new FormData();                  
-        form_upload.append('file', JSON.stringify(imglist));
-        form_upload.append('updated_by', window.sessionStorage.id);
-        var settings = {
-            "url": host + "api_media/public/programUpload2/" + window.sessionStorage.med_program_id,
-            "method": "POST",
-            "timeout": 0,
-            contentType: false,
-            processData: false,
-            data: form_upload,
-        };        
-        $.ajax(settings).done(function (response) {}); 
+
+        saveImgList(JSON.stringify(imglist));
         //api_upload_img
     },
     onError: function(event, file, file_number) {
@@ -65,82 +58,203 @@ $.fileup({
     }
 });
 
-var settings = {
-    "url": host + "api_media/public/program/" + window.sessionStorage.med_program_id,
-    "method": "GET",
-    "timeout": 0,
-};
-
-$.ajax(settings).done(function (response) {
-    t_program = new Date(response.data.tarikh_program);
-    $("#disp_id").val(response.data.PK);
-    $("#upt_id").val(response.data.PK);
-    $("#disp_nama_program").text(response.data.nama_program);
-    $("#disp_tarikh_program").text(t_program.getDate() + "/" + (t_program.getMonth() + 1) + "/" + t_program.getFullYear());
-    $("#disp_nama_kampus").text(response.data.nama_kampus);
-    $("#disp_nama_kluster").text(response.data.nama_kluster);
-    $("#disp_nama_unit").text(response.data.nama_unit);
-    $("#disp_nama_kategori").text(response.data.nama_kategori);
-    $("#disp_bilangan_fail").text(response.data.bilangan_fail);
-    $("#disp_kod_format").text(response.data.kod_format);
-    $("#disp_saiz_fail").text(response.data.saiz_fail);
-    $("#uptid").val(response.data.PK);
-    let convertList = JSON.stringify(response.data.media_path);
-    $('#dataList').val(convertList);
-
-    if(convertList == "null"){
-        $('#dataList').val("");
-    }
-    images = JSON.parse(response.data.media_path);
-    $.each(images, function (i, field) {
-        
-        // listImages =    '<div class="col-lg-3 col-12 mb-30 border">'+
-        //                     '<div class="row adomx-checkbox-radio-group" style="padding: 10px;">'+
-        //                         '<div class="row">'+
-        //                             '<div class="col align-self-start hidden">'+
-        //                                 '<input type="checkbox" id="img'+field.images+'" name="img'+field.images+'" value="'+field.images+'" /> <i class="icon"></i>'+
-        //                             '</div>'+
-        //                             '<div class="col align-self-end hidden" align="right">'+
-        //                                 '<button class="button button-box button-sm button-primary" onclick="loadData(\'' + field.images + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> '+
-        //                             '</div>'+
-        //                             '<label class="adomx-checkbox" for="img'+field.images+'">'+
-        //                                 '<div class="col-12" align="center">'+
-        //                                     '<img src="../api_asdcm/api_media/public/uploads/'+field.images+'" height="150px" alt="">'+
-        //                                 '</div>'+
-        //                             '</label>'+
-        //                         '</div>   '+
-        //                     '</div>   '+
-        //                 '</div>';
-        listImages =    '<div class="col-lg-3 col-12 mb-30 border">'+
-                            '<div class="row adomx-checkbox-radio-group" style="padding: 10px;">'+
-                                '<div class="col-12" align="center">'+
-                                    '<img src="../api_asdcm/api_media/public/uploads/'+field.images+'" height="150px" alt="" onclick="loadData(\'' + field.images + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate">'+
-                                '</div>'+
-                            '</div>   '+
-                        '</div>';
-    $("#listImages").append(listImages);
-    });
-});
-
-function loadData(indexs){ 
-    let data = JSON.parse($("#dataList").val());
-    let img = new Image();
-    img.src = '../api_asdcm/api_media/public/uploads/'+indexs;
-    $('#imgText').val(indexs);
-    document.getElementById('imgTags').appendChild(img);
-    // saveLog(window.sessionStorage.id,"View Data of [id = " + data[indexs].id + "]" + data[indexs].nama_agama + " at Tetapan Agama.",window.sessionStorage.browser);
-
-    $("#tag-gambar").modal("show");
-    // document.getElementById("upt_nama_agama").focus();    
+function saveImgList(varImg){
+    
+    var form_upload = new FormData();                  
+    form_upload.append('file', varImg);
+    form_upload.append('updated_by', window.sessionStorage.id);
+    var settings = {
+        "url": host + "api_media/public/programUpload2/" + window.sessionStorage.med_program_id,
+        "method": "POST",
+        "timeout": 0,
+        contentType: false,
+        processData: false,
+        data: form_upload,
+    };        
+    $.ajax(settings).done(function (response) {
+        window.location.reload();
+    }); 
 }
 
 
-// let data = JSON.parse(db);
-console.log($('#dataList').val());
-// $.each(db, function (i, field) {        
-//     imglist.push({images: field.images});
+// $.fileup({
+//     // url: 'file/upload',
+//     inputID: 'upload-2',
+//     dropzoneID: 'upload-2-dropzone',
+//     queueID: 'upload-2-queue',
+//     lang: 'en',
+//     onSelect: function(file) {
+//         $('#multiple button').show();
+//     },
+//     onRemove: function(file, total) {
+//         if (file === '*' || total === 1) {
+//             $('#multiple button').hide();
+//         }
+//     },
+//     onSuccess: function(response, file_number, file) {
+//         var file_data = file;  
+        
+//         var ext = file.name.split('.').pop();
+        
+
+        
+//         var form_data = new FormData();                  
+//         form_data.append('file', file_data);
+//         form_data.append('updated_by', window.sessionStorage.id);
+//         $.ajax({
+//             url: host + 'api_media/public/programUpload/' + window.sessionStorage.med_program_id,
+//             dataType: 'text',
+//             cache: false,
+//             contentType: false,
+//             processData: false,
+//             data: form_data,                         
+//             method: 'post',
+//             timeout: 0
+//         });
+//         imglist = $('#dataList').val();
+//         if(imglist == ""){
+//             imglist = [];
+//         }
+//         else{
+//             imglist =  JSON.parse(JSON.parse($('#dataList').val()));
+//             // console.log(imglist)
+//         }
+
+//         var form_cek = new FormData();
+//         form_cek.append('ext', ext);
+
+//         var settings_cek = {
+//             "url": host + "api_media/public/programUploadExt/" + window.sessionStorage.med_program_id,
+//             "method": "POST",
+//             "timeout": 0,
+//             contentType: false,
+//             processData: false,
+//             data: form_upload,
+//         };        
+//         $.ajax(settings).done(function (response) {
+            
+//             alert(response.data);
+//             // if()
+
+//             imglist.push({images: window.sessionStorage.med_program_id + "_" + file.name});
+//             $('#dataList').val(JSON.stringify(JSON.stringify(imglist)));
+//             // console.log(imglist)
+//             var form_upload = new FormData();                  
+//             form_upload.append('file', JSON.stringify(imglist));
+//             form_upload.append('updated_by', window.sessionStorage.id);
+//             var settings = {
+//                 "url": host + "api_media/public/programUpload2/" + window.sessionStorage.med_program_id,
+//                 "method": "POST",
+//                 "timeout": 0,
+//                 contentType: false,
+//                 processData: false,
+//                 data: form_upload,
+//             };        
+//             $.ajax(settings).done(function (response) {
+//                 window.location.reload();
+//             }); 
+//         });
+        
+
+        
+//         //api_upload_img
+//     },
+//     onError: function(event, file, file_number) {
+//         console.log(file.name+" - "+"error,");
+//         //swal error
+//     },
+//     onFinish: function(e){
+//         window.location.reload();
+//     }
 // });
-// console.log(imglist);
+
+function onPageLoad(){
+    var settings = {
+        "url": host + "api_media/public/program/" + window.sessionStorage.med_program_id,
+        "method": "GET",
+        "timeout": 0,
+    };
+    
+    $.ajax(settings).done(function (response) {
+        t_program = new Date(response.data.tarikh_program);
+
+        vip = response.data.FK_vip
+        vip = vip.replace(/;/gi,' ,');
+
+        $("#disp_id").val(response.data.id_program);
+        $("#upt_id").val(response.data.id_program);
+        $("#disp_nama_program").text(response.data.nama_program);
+        $("#disp_tarikh_program").text(t_program.getDate() + "/" + (t_program.getMonth() + 1) + "/" + t_program.getFullYear());
+        $("#disp_nama_kampus").text(response.data.nama_kampus);
+        $("#disp_nama_kluster").text(response.data.nama_kluster);
+        $("#disp_nama_unit").text(response.data.nama_unit);
+        $("#disp_vip").text(vip);
+        $("#disp_nama_kategori").text(response.data.nama_kategori);
+        $("#disp_bilangan_fail").text(response.data.bilangan_fail);
+        $("#disp_kod_format").text(response.data.kod_format);
+        $("#disp_saiz_fail").text(response.data.saiz_fail);
+        $("#uptid").val(response.data.id_program);
+        let convertList = JSON.stringify(response.data.media_path);
+        $('#dataList').val(convertList);
+    
+        if(convertList == "null"){
+            $('#dataList').val("");
+        }
+        images = JSON.parse(response.data.media_path);
+        $.each(images, function (i, field) {
+
+            var preview = '';
+            ext = field.images.split('.');
+
+            // alert(field.FK_vip);
+            
+            if(ext[1] == 'mp4' || ext[1] == 'mov' ){
+                preview = '<span class="" style="font-size:80px" onclick="loadData(\'' + field.images + '\',2,\'' + field.FK_vip + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="fa fa-file-video-o"></i></span>';
+                // preview = '<span class="" style="font-size:80px" onclick="loadData(\'' + field.images + '\',2)" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="fa fa-file-video-o"></i></span>';
+                // preview = '<img src="../api_asdcm/api_media/public/images/'+field.images+'" height="150px" alt="" onclick="loadData(\'' + field.images + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate">';
+            } 
+            else if(ext[1] != 'mp4' || ext[1] != 'mov' ) preview = '<img src="../api_asdcm/api_media/public/uploads/'+field.images+'" height="150px" alt="" onclick="loadData(\'' + field.images + '\',1,\'' + field.FK_vip + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate">';
+
+            listImages =    '<div class="col-lg-3 col-12 mb-30 border">'+
+                                '<div class="row adomx-checkbox-radio-group" style="padding: 10px;">'+
+                                    '<div class="col-12" align="center">'+
+                                        // '<div class="watermark">'+
+                                            preview+
+                                        '</div>'+
+                                    // '</div>'+
+                                '</div>   '+
+                            '</div>';
+        $("#listImages").append(listImages);
+        });
+    });
+}
+
+function loadData(indexs,varType,vip){ 
+    let data = JSON.parse($("#dataList").val());
+
+    vip = vip.replace(";",",");
+    if(varType == 1){
+        var img = new Image();
+        img.src = '../api_asdcm/api_media/public/uploads/'+indexs;
+    }else{
+        var img = document.createElement('video');
+        img.src ='../api_asdcm/api_media/public/uploads/'+indexs;
+        // img.height = 450;
+        img.autoplay = false;
+        img.controls = true;
+        $('#video').bind('contextmenu',function() { return false; });
+    }
+    
+    $('#imgText').val(indexs);
+
+    // watermark = '<div class="watermark"></div>';
+    document.getElementById('imgTags').appendChild(img);
+    $('#FK_users').val('');
+    if(vip != 'undefined') $('#FK_users').val(vip);
+    
+
+    $("#tag-gambar").modal("show");
+}
 
 $("#closeButton").click(function () {
     const list = document.getElementById("imgTags");
@@ -184,7 +298,7 @@ $("#taggambar").on('submit',function(e){
             // console.log(param)
             
             var form = new FormData();
-            form.append("id",id);
+            form.append("id_program",id);
             form.append("imgText",imgText);
             form.append("FK_users",FK_users);
             form.append("updated_by",window.sessionStorage.id);
@@ -344,10 +458,27 @@ var settings = {
         $('#FK_userss').empty();
         $.each(response.data, function (i, item) {
             $('#FK_userss').append($('<option>', { 
-                value: item.nama_gelaran + " " + item.nama_vip,
-                text : item.nama_gelaran + " " + item.nama_vip
+                value: item.nama_gelaran + " " + item.nama_vip + " (" + item.jawatan_vip + ")",
+                text : item.nama_gelaran + " " + item.nama_vip + " (" + item.jawatan_vip + ")"
             }));
         });
         
     });
 // END Dropdown User List
+
+$('#listvip').change(function(){
+    
+    var text = $(this).val();
+    var listvip = $('#FK_users').val().split(',');
+
+    listvip.forEach((vip, index) => {
+
+        if(vip == text) { listvip.splice(index, 1); }
+        
+    });
+
+    if(listvip != ""){ listvip = listvip+','+text; } 
+    else{ listvip = text; }
+    
+    $('#FK_users').val(listvip);
+});

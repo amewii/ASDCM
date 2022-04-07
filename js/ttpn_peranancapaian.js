@@ -1,129 +1,201 @@
+$(function(){
+    $.ajaxSetup ({
+        cache: false
+    });
+    tablePeranan();
+    tableCapaian();
+    tablePengguna();
+    
+});
+
 $("#capaian").click(function () {
     $('#buttonCapaian').removeClass('hidden');
     $('#buttonPeranan').addClass('hidden');
+    $('#buttonPengguna').addClass('hidden');
 });
 $("#peranan").click(function () {
-    $('#buttonCapaian').addClass('hidden');
     $('#buttonPeranan').removeClass('hidden');
+    $('#buttonCapaian').addClass('hidden');
+    $('#buttonPengguna').addClass('hidden');
+});
+$("#pengguna").click(function () {
+    $('#buttonPengguna').removeClass('hidden');
+    $('#buttonPeranan').addClass('hidden');
+    $('#buttonCapaian').addClass('hidden');
 });
 
-var columsPeranan = [
-    { "name": "bil", "title": "Bil" },
-    { "name": "nama_peranan", "title": "Nama Peranan" },
-    { "name": "nama_senarai", "title": "Senarai Capaian", "breakpoints": "md sm xs" },
-    { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
-    // {"name":"status","title":"Status","breakpoints":"sm xs"}
-];
-var settings = {
-    "url": host + "api_pentadbir/public/perananList",
-    "method": "GET",
-    "timeout": 0,
-};
-
-$.ajax(settings).done(function (response) {
-    let convertList = JSON.stringify(response.data);
-    $("#dataList").val(convertList);
-    var list = [];
-    var senarai_capaian = "";
-    let bil = 1;
-    let nama_submodul = "";
-    $.each(response.data, function (i, field) {
-        senarai_capaian = "";
-        let inc = 1;
-        while (inc <= 7)    {
-            switch(inc) {
-                case 1: nama_submodul = "<b>Tetapan</b>: "; break;
-                case 2: nama_submodul = "<b>Senarai Program</b>: "; break;
-                case 3: nama_submodul = "<b>Senarai Permohonan</b>: "; break;
-                case 4: nama_submodul = "<b>Laporan</b>: "; break;
-                case 5: nama_submodul = "<b>Senarai Pengguna</b>: "; break;
-                case 6: nama_submodul = "<b>Peranan & Capaian</b>: "; break;
-                case 7: nama_submodul = "<b>Jejak Audit</b>: "; break;
-            }
-            senarai_capaian = senarai_capaian + nama_submodul; 
-            // console.log(senarai_capaian)
-            if (field.FK_capaian.indexOf('C'+inc) >= 0)
-                senarai_capaian = senarai_capaian + "Create, ";
-            if (field.FK_capaian.indexOf('R'+inc) >= 0)
-                senarai_capaian = senarai_capaian + "Read, ";
-            if (field.FK_capaian.indexOf('U'+inc) >= 0)
-                senarai_capaian = senarai_capaian + "Update, ";
-            if (field.FK_capaian.indexOf('D'+inc) >= 0)
-                senarai_capaian = senarai_capaian + "Delete, ";
-            senarai_capaian = senarai_capaian + "<br>";
-            inc++;
-        }
-        // console.log(senarai_capaian)
-        list.push({
-            id: field.id,
-            nama_peranan: field.nama_peranan,
-            nama_senarai: '<p style="white-space: pre-line">'+senarai_capaian+"</p>", 
-            bil: bil++,
-            "upt_btn":  '<button class="button button-box button-sm button-primary" style="display: none;" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> ' +
-                        '<button class="button button-box button-sm button-danger" title="Hapus" onclick="del_rekod(\''+field.PK+'\')"><i class="ti-trash"></i>'
-        });
-    });
-
-    $("#listPeranan").footable({
-        "columns": columsPeranan,
-        "rows": list,
-        "paging": {
-            "enabled": true,
-            "size": 5
-        },
-        "filtering": {
-            "enabled": true,
-            "placeholder": "Carian...",
-            "dropdownTitle": "Carian untuk:",
-            "class": "brown-700"
-        }
-    });
-});
-
-var colums = [
-    { "name": "bil", "title": "Bil" },
-    { "name": "nama_peranan", "title": "Nama Peranan" },
-    { "name": "nama", "title": "Nama Pegawai", "breakpoints": "md sm xs" },
-    { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
-    // {"name":"status","title":"Status","breakpoints":"sm xs"}
-];
-var settings = {
-    "url": host + "api_pentadbir/public/capaianList",
-    "method": "GET",
-    "timeout": 0,
-};
-
-$.ajax(settings).done(function (response) {
-    let convertList = JSON.stringify(response.data);
-    $("#dataList").val(convertList);
-    var list = [];
-    $.each(response.data, function (i, field) {
+function tablePeranan() {
+    var columsPeranan = [
+        { "name": "bil", "title": "Bil" },
+        { "name": "nama_peranan", "title": "Nama Peranan" },
+        { "name": "nama_senarai", "title": "Senarai Capaian", "breakpoints": "md sm xs" },
+        { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
+        // {"name":"status","title":"Status","breakpoints":"sm xs"}
+    ];
+    var settings = {
+        "url": host + "api_pentadbir/public/perananList",
+        "method": "GET",
+        "timeout": 0,
+    };
+    
+    $.ajax(settings).done(function (response) {
+        let convertList = JSON.stringify(response.data);
+        $("#dataList").val(convertList);
+        var list = [];
+        var senarai_capaian = "";
         let bil = 1;
-        list.push({
-            id: field.PK,
-            nama_peranan: field.nama_peranan,
-            nama: field.nama,
-            bil: bil++,
-            "upt_btn":  '<button class="button button-box button-sm button-primary" style="display: none;" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> ' +
-                        '<button class="button button-box button-sm button-danger" title="Hapus" onclick="del_rekod(\''+field.PK+'\')"><i class="ti-trash"></i>'
+        let nama_submodul = "";
+        $.each(response.data, function (i, field) {
+            senarai_capaian = "";
+            let inc = 1;
+            while (inc <= 7)    {
+                switch(inc) {
+                    case 1: nama_submodul = "<b>Tetapan</b>: "; break;
+                    case 2: nama_submodul = "<b>Senarai Program</b>: "; break;
+                    case 3: nama_submodul = "<b>Senarai Permohonan</b>: "; break;
+                    case 4: nama_submodul = "<b>Laporan</b>: "; break;
+                    case 5: nama_submodul = "<b>Senarai Pengguna</b>: "; break;
+                    case 6: nama_submodul = "<b>Peranan & Capaian</b>: "; break;
+                    case 7: nama_submodul = "<b>Jejak Audit</b>: "; break;
+                }
+                senarai_capaian = senarai_capaian + nama_submodul; 
+                // console.log(senarai_capaian)
+                if (field.FK_capaian.indexOf('C'+inc) >= 0)
+                    senarai_capaian = senarai_capaian + "Create, ";
+                if (field.FK_capaian.indexOf('R'+inc) >= 0)
+                    senarai_capaian = senarai_capaian + "Read, ";
+                if (field.FK_capaian.indexOf('U'+inc) >= 0)
+                    senarai_capaian = senarai_capaian + "Update, ";
+                if (field.FK_capaian.indexOf('D'+inc) >= 0)
+                    senarai_capaian = senarai_capaian + "Delete, ";
+                senarai_capaian = senarai_capaian + "<br>";
+                inc++;
+            }
+            // console.log(senarai_capaian)
+            list.push({
+                id: field.id_peranan,
+                nama_peranan: field.nama_peranan,
+                nama_senarai: '<p style="white-space: pre-line">'+senarai_capaian+"</p>", 
+                bil: bil++,
+                "upt_btn":  '<button class="button button-box button-sm button-primary" style="display: none;" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> ' +
+                            '<button class="button button-box button-sm button-danger" title="Hapus" onclick="del_rekod(\''+field.id_peranan+'\')"><i class="ti-trash"></i>'
+            });
+        });
+    
+        $("#listPeranan").footable({
+            "columns": columsPeranan,
+            "rows": list,
+            "paging": {
+                "enabled": true,
+                "size": 5
+            },
+            "filtering": {
+                "enabled": true,
+                "placeholder": "Carian...",
+                "dropdownTitle": "Carian untuk:",
+                "class": "brown-700"
+            }
         });
     });
+}
 
-    $("#listCapaian").footable({
-        "columns": colums,
-        "rows": list,
-        "paging": {
-            "enabled": true,
-            "size": 5
-        },
-        "filtering": {
-            "enabled": true,
-            "placeholder": "Carian...",
-            "dropdownTitle": "Carian untuk:",
-            "class": "brown-700"
-        }
+function tableCapaian() {
+    var colums = [
+        { "name": "bil", "title": "Bil" },
+        { "name": "nama_peranan", "title": "Nama Peranan" },
+        { "name": "nama", "title": "Nama Pegawai", "breakpoints": "md sm xs" },
+        { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
+        // {"name":"status","title":"Status","breakpoints":"sm xs"}
+    ];
+    var settings = {
+        "url": host + "api_pentadbir/public/capaianList",
+        "method": "GET",
+        "timeout": 0,
+    };
+    
+    $.ajax(settings).done(function (response) {
+        let convertList = JSON.stringify(response.data);
+        $("#dataList").val(convertList);
+        var list = [];
+        $.each(response.data, function (i, field) {
+            let bil = 1;
+            list.push({
+                id: field.id_capaian,
+                nama_peranan: field.nama_peranan,
+                nama: field.nama,
+                bil: bil++,
+                "upt_btn":  '<button class="button button-box button-sm button-primary" style="display: none;" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> ' +
+                            '<button class="button button-box button-sm button-danger" title="Hapus" onclick="del_rekod(\''+field.id_capaian+'\')"><i class="ti-trash"></i>'
+            });
+        });
+    
+        $("#listCapaian").footable({
+            "columns": colums,
+            "rows": list,
+            "paging": {
+                "enabled": true,
+                "size": 5
+            },
+            "filtering": {
+                "enabled": true,
+                "placeholder": "Carian...",
+                "dropdownTitle": "Carian untuk:",
+                "class": "brown-700"
+            }
+        });
     });
-});
+}
+
+function tablePengguna(){
+    var colums = [
+        { "name": "bil", "title": "Bil" },
+        { "name": "nama", "title": "Nama" },
+        { "name": "jenis_pengguna", "title": "Sektor" },
+        { "name": "nama_peranan", "title": "Peranan" },
+        { "name": "emel", "title": "Emel", "breakpoints": "md sm xs" },
+        { "name": "no_kad_pengenalan", "title": "No. K/P", "breakpoints": "md sm xs" },
+        { "name": "upt_btn", "title": "Tindakan", "breakpoints": "lg md sm xs" },
+        // {"name":"status","title":"Status","breakpoints":"sm xs"}
+    ];
+    var settings = {
+        "url": host + "api_pentadbir/public/usersListAll",
+        "method": "GET",
+        "timeout": 0,
+      };
+    
+    $.ajax(settings).done(function (response) {
+        let convertList = JSON.stringify(response.data);
+        $("#dataListPengguna").val(convertList);
+        var list = [];
+        let bil = 1;
+    
+        $.each(response.data, function (i, field) {
+            t_lahir = new Date(field.tarikh_lahir);        
+            list.push({
+                id: field.id_users, nama: field.nama, emel: field.emel, no_kad_pengenalan: field.no_kad_pengenalan, 
+                notel: field.notel, jenis_pengguna: field.jenis_pengguna, nama_peranan: field.nama_peranan, 
+                bil: bil++,
+                "upt_btn":  '<button class="button button-box button-sm button-primary" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> ' +
+                            '<button class="button button-box button-sm button-danger" title="Hapus" onclick="del_rekod(\''+field.id_users+'\')"><i class="ti-trash"></i>'
+            });
+        });
+    
+        $("#listPengguna").footable({
+            "columns": colums,
+            "rows": list,
+            "paging": {
+                "enabled": true,
+                "size": 5
+            },
+            "filtering": {
+                "enabled": true,
+                "placeholder": "Carian...",
+                "dropdownTitle": "Carian untuk:",
+                "class": "brown-700"
+            }
+        });
+    });
+}
 
 function loadData(indexs){   
 
@@ -147,8 +219,8 @@ $('#FK_users').change(function(){
         "timeout": 0,
       };
     $.ajax(settings).done(function (response) {
-        console.log(response)
-        $("#FK_user").val(response.data.PK);
+        // alert(response.data)
+        $("#FK_user").val(response.data.id_users);
         $("#FK_kampus").val(response.data.FK_kampus);
         $("#FK_kluster").val(response.data.FK_kluster);
         $("#FK_subkluster").val(response.data.FK_subkluster);
@@ -560,7 +632,7 @@ var settings = {
         }));
         $.each(response.data, function (i, item) {
             $('#FK_kampus').append($('<option>', { 
-                value: item.PK,
+                value: item.id_kampus,
                 text : item.nama_kampus
             }));
         });
@@ -573,7 +645,7 @@ var settings = {
         }));
         $.each(response.data, function (i, item) {
             $('#upt_FK_kampus').append($('<option>', { 
-                value: item.PK,
+                value: item.id_kampus,
                 text : item.nama_kampus 
             }));
         });
@@ -600,7 +672,7 @@ var settings = {
         }));
         $.each(response.data, function (i, item) {
             $('#FK_kluster').append($('<option>', { 
-                value: item.id,
+                value: item.id_kluster,
                 text : item.nama_kluster 
             }));
         });
@@ -613,7 +685,7 @@ var settings = {
         }));
         $.each(response.data, function (i, item) {
             $('#upt_FK_kluster').append($('<option>', { 
-                value: item.id,
+                value: item.id_kluster,
                 text : item.nama_kluster 
             }));
         });
@@ -640,7 +712,7 @@ var settings = {
         }));
         $.each(response.data, function (i, item) {
             $('#FK_subkluster').append($('<option>', { 
-                value: item.id,
+                value: item.id_subkluster,
                 text : item.nama_subkluster 
             }));
         });
@@ -653,7 +725,7 @@ var settings = {
         }));
         $.each(response.data, function (i, item) {
             $('#upt_FK_subkluster').append($('<option>', { 
-                value: item.id,
+                value: item.id_subkluster,
                 text : item.nama_subkluster 
             }));
         });
@@ -680,7 +752,7 @@ var settings = {
         }));
         $.each(response.data, function (i, item) {
             $('#FK_unit').append($('<option>', { 
-                value: item.PK,
+                value: item.id_unit,
                 text : item.nama_unit 
             }));
         });
@@ -693,7 +765,7 @@ var settings = {
         }));
         $.each(response.data, function (i, item) {
             $('#upt_FK_unit').append($('<option>', { 
-                value: item.PK,
+                value: item.id_unit,
                 text : item.nama_unit 
             }));
         });
@@ -720,7 +792,7 @@ var settings = {
         }));
         $.each(response.data, function (i, item) {
             $('#FK_peranan').append($('<option>', { 
-                value: item.id,
+                value: item.id_peranan,
                 text : item.nama_peranan 
             }));
         });
@@ -733,13 +805,49 @@ var settings = {
         }));
         $.each(response.data, function (i, item) {
             $('#upt_FK_peranan').append($('<option>', { 
-                value: item.id,
+                value: item.id_peranan,
                 text : item.nama_peranan 
             }));
         });
         
     });
 // END Dropdown Peranan List
+
+//Dropdown User List
+var settings = {
+    "url": host+"api_pentadbir/public/usersgovsIntanList",
+    "method": "GET",
+    "timeout": 0,
+    // "header":{
+    //     "Authentication": "ASDCM"+window.sessionStorage.token
+    //   }
+  };
+
+    $.ajax(settings).done(function (response) {
+        //LIST OPTION
+        $('#FK_userss').empty();
+        $.each(response.data, function (i, item) {
+            $('#FK_userss').append($('<option>', { 
+                value: item.no_kad_pengenalan,
+                text : item.nama
+            }));
+        });
+
+        //LIST OPTION UPDATE
+        $('#upt_FK_users').empty();
+        $('#upt_FK_users').append($('<option>', { 
+            value: "",
+            text : "Pilih Pengguna" 
+        }));
+        $.each(response.data, function (i, item) {
+            $('#upt_FK_users').append($('<option>', { 
+                value: item.PK,
+                text : item.nama
+            }));
+        });
+        
+    });
+// END Dropdown User List
 
 //Checkbox Submodul List
 var settings = {

@@ -24,7 +24,7 @@ $.ajax(settings).done(function (response) {
     if (window.sessionStorage.FK_capaian.indexOf('R5') >= 0)    {
         $('#control_sysadmin').removeClass('hidden');
         $('#control_pentadbir_sistem').removeClass('hidden');
-        $('#control_senarai_pengguna').removeClass('hidden');
+        // $('#control_senarai_pengguna').removeClass('hidden');
     }
     if (window.sessionStorage.FK_capaian.indexOf('R6') >= 0)    {
         $('#control_sysadmin').removeClass('hidden');

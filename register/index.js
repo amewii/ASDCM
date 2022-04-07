@@ -104,7 +104,7 @@ $("#checkusers2").on('submit',function(e){
 
 //Dropdown Jenis Pengguna List
 var settings = {
-    "url": host+"api_pengguna/public/jenispenggunasList",
+    "url": host+"api_pentadbir/public/jenispenggunasList",
     "method": "GET",
     "timeout": 0,
     // "header":{
