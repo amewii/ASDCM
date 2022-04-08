@@ -2,19 +2,49 @@ $(function () {
     $.ajaxSetup({
         cache: false
     });
+    cekCapaian()
     tableVip();
     gelaranList();
 });
 
+function cekCapaian(){
+
+    //TETAPAN MEDIA (ID:1)
+    if(window.sessionStorage.control_tetapan_media_C1 == 1){
+        $('#control_tetapan_media_vip_C1').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_tetapan_media_R1 == 1){
+        $('#control_tetapan_media_vip_R1').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_tetapan_media_U1 == 1){
+        $('#control_tetapan_media_vip_U1').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_tetapan_media_D1 == 1){
+        $('#control_tetapan_media_vip_D1').removeClass('hidden');
+    }
+}
+
 function tableVip() {
-    var colums = [
-        { "name": "bil", "title": "Bil" },
-        { "name": "nama_vip", "title": "Nama Vip" },
-        { "name": "jawatan_vip", "title": "Jawatan Vip", "breakpoints": "md sm xs" },
-        { "name": "status_rekod", "title": "Status", "breakpoints": "md sm xs" },
-        { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
-        // {"name":"status","title":"Status","breakpoints":"sm xs"}
-    ];
+    if(window.sessionStorage.control_tetapan_media_U1 == 1){
+        var colums = [
+            { "name": "bil", "title": "Bil" },
+            { "name": "nama_vip", "title": "Nama Vip" },
+            { "name": "jawatan_vip", "title": "Jawatan Vip", "breakpoints": "md sm xs" },
+            { "name": "status_rekod", "title": "Status", "breakpoints": "md sm xs" },
+            { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
+            // {"name":"status","title":"Status","breakpoints":"sm xs"}
+        ];
+    }else{
+        var colums = [
+            { "name": "bil", "title": "Bil" },
+            { "name": "nama_vip", "title": "Nama Vip" },
+            { "name": "jawatan_vip", "title": "Jawatan Vip", "breakpoints": "md sm xs" },
+            { "name": "status_rekod", "title": "Status", "breakpoints": "md sm xs" },
+            // { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
+            // {"name":"status","title":"Status","breakpoints":"sm xs"}
+        ];
+    }
+
     var settings = {
         "url": host + "api_public/public/vipsListAll",
         "method": "GET",
@@ -37,11 +67,21 @@ function tableVip() {
                 badge = 'badge-danger';
                 text_statusrekod = 'Tidak Aktif';
             }
-            list.push({
-                id: field.id_vip, nama_vip: field.nama_gelaran + " " + field.nama_vip, jawatan_vip: field.jawatan_vip, bil: bil++,
-                status_rekod: '<label class="adomx-switch-2 success"><input type="checkbox" id="status_sistem" class="form-control mb-20" ' + checked + ' onclick="del_rekod(\'' + field.id_vip + '\')"> <i class="lever"></i> <span id="text_statusrekod' + field.id_vip + '" class="badge ' + badge + '">' + text_statusrekod + '</span></label>',
-                upt_btn: '<button class="button button-box button-sm button-primary" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> '
-            });
+
+            if(window.sessionStorage.control_tetapan_media_U1 == 1){
+                list.push({
+                    id: field.id_vip, nama_vip: field.nama_gelaran + " " + field.nama_vip, jawatan_vip: field.jawatan_vip, bil: bil++,
+                    status_rekod: '<label class="adomx-switch-2 success"><input type="checkbox" id="status_sistem" class="form-control mb-20" ' + checked + ' onclick="del_rekod(\'' + field.id_vip + '\')"> <i class="lever"></i> <span id="text_statusrekod' + field.id_vip + '" class="badge ' + badge + '">' + text_statusrekod + '</span></label>',
+                    upt_btn: '<button class="button button-box button-sm button-primary" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> '
+                });
+            }else{
+                list.push({
+                    id: field.id_vip, nama_vip: field.nama_gelaran + " " + field.nama_vip, jawatan_vip: field.jawatan_vip, bil: bil++,
+                    status_rekod: '<label class="adomx-switch-2 success"><span id="text_statusrekod' + field.id_vip + '" class="badge ' + badge + '">' + text_statusrekod + '</span></label>',
+                    // upt_btn: '<button class="button button-box button-sm button-primary" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> '
+                });
+            }
+            
         });
 
         $("#vipList").footable({

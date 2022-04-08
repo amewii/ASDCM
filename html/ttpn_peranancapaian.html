@@ -83,6 +83,37 @@
 </div>
 
 <!-- Modal -->
+<div class="modal fade" id="update-peranan">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <form role="form" id="updatePeranan">
+                <div class="modal-header">
+                    <h5 class="modal-title">Kemaskini Rekod Peranan</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="col-12 mb-20">
+                            <label for="nama_peranan">Nama Peranan</label>
+                            <input type="text" class="form-control hidden" id="upt_id">
+                            <input type="text" class="form-control" id="upt_nama_peranan">
+                        </div>
+                        <div class="col-6 mb-20">
+                            <label for="FK_capaian">Submodul/Capaian</label>
+                            <div class="adomx-checkbox-radio-group" id="upt_FK_capaian"></div>
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="button button-primary" type="submit"><i class="ti-check"></i> Simpan</button>
+                    <button class="button button-danger" data-dismiss="modal"><i class="ti-close"></i>Tutup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
 <div class="modal fade" id="reg-capaian">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
@@ -101,19 +132,19 @@
                         </div>
                         <div class="col-12 mb-20">
                             <label for="FK_kampus">Kampus</label>
-                            <select tabindex="-1" aria-disabled="true" class="form-control c-select" id="FK_kampus"></select>
+                            <select tabindex="-1" aria-disabled="true" style="pointer-events: none; touch-action: none;" class="form-control c-select" id="FK_kampus"></select>
                         </div>
                         <div class="col-12 mb-20">
                             <label for="FK_kluster">Kluster</label>
-                            <select tabindex="-1" aria-disabled="true"  class="form-control c-select" id="FK_kluster"></select>
+                            <select tabindex="-1" aria-disabled="true" style="pointer-events: none; touch-action: none;" class="form-control c-select" id="FK_kluster"></select>
                         </div>
                         <div class="col-12 mb-20">
                             <label for="FK_subkluster">Kluster</label>
-                            <select tabindex="-1" aria-disabled="true"  class="form-control c-select" id="FK_subkluster"></select>
+                            <select tabindex="-1" aria-disabled="true" style="pointer-events: none; touch-action: none;" class="form-control c-select" id="FK_subkluster"></select>
                         </div>
                         <div class="col-12 mb-20">
                             <label for="FK_unit">Unit</label>
-                            <select tabindex="-1" aria-disabled="true" class="form-control c-select" id="FK_unit"></select>
+                            <select tabindex="-1" aria-disabled="true" style="pointer-events: none; touch-action: none;" class="form-control c-select" id="FK_unit"></select>
                         </div>
                         <div class="col-12 mb-20">
                             <label for="FK_peranan">Peranan</label>

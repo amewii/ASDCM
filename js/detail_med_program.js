@@ -2,8 +2,27 @@ $(function () {
     $.ajaxSetup({
         cache: false
     });
+    cekCapaian()
     onPageLoad();
 });
+
+function cekCapaian(){
+
+    //TETAPAN MEDIA (ID:1)
+    if(window.sessionStorage.control_program_media_C2 == 1){
+        
+        $('#control_program_media_C2').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_program_media_R2 == 1){
+        $('#control_program_media_R2').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_program_media_U2 == 1){
+        $('#control_program_media_U2').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_program_media_D2 == 1){
+        $('#control_program_media_D2').removeClass('hidden');
+    }
+}
 
 $.fileup({
     // url: 'file/upload',
@@ -206,7 +225,11 @@ function onPageLoad(){
             var preview = '';
             ext = field.images.split('.');
 
-            // alert(field.FK_vip);
+            var appendLoadData = '';
+
+            if(window.sessionStorage.control_program_media_U2 == 1){
+                appendLoadData = 'onclick="loadData(\'' + field.images + '\',2,\'' + field.FK_vip + '\')"';
+            }
             
             if(ext[1] == 'mp4' || ext[1] == 'mov' ){
                 preview = '<span class="" style="font-size:80px" onclick="loadData(\'' + field.images + '\',2,\'' + field.FK_vip + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="fa fa-file-video-o"></i></span>';

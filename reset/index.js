@@ -1,3 +1,34 @@
+const queryString = window.location.search;
+if (queryString != '')  {
+    const urlParams = new URLSearchParams(queryString);
+    const temp = urlParams.get('temp');
+    var settings = {
+        "url": host+"api_pentadbir/public/usersResetKatalaluan/" + temp,
+        "method": "GET",
+        "timeout": 0
+    };
+    $.ajax(settings).done(function (response) {
+        $("#no_kad_pengenalan_final").val(response.data.no_kad_pengenalan);
+        if (typeof response.data.no_kad_pengenalan !== 'undefined')  {
+            $("#checkic").addClass("hidden");
+            $("#backtologin").addClass("hidden");
+            $("#checkic3").removeClass("hidden");
+        } else  {
+            swal({
+                title: "Lupa Katalaluan",
+                text: "",
+                type: "error",
+                closeOnConfirm: true,
+                allowOutsideClick: false,
+                html: "Pautan ini telah luput."
+            }).then(function(){
+                window.location.replace('../login');
+            });
+        }
+    });
+    // console.log(temp);
+    
+}
 var confirmed = false;
 document.getElementById("no_kad_pengenalan_semak").focus();
 if ((typeof window.sessionStorage.no_kad_pengenalan !== 'undefined')) {
@@ -22,10 +53,11 @@ $("#checkusers").on('submit',function(e){
 
         var form = new FormData();
         form.append("no_kad_pengenalan",no_kad_pengenalan);
-
+        form.append("masa",new Date());
+        form.append("landing_page","/admin/reset");
         // console.log(nama_user)
         var settings = {
-            "url": host+"api_pentadbir/public/users",
+            "url": host+"api_pentadbir/public/usersResetToEmail",
             "method": "POST",
             "timeout": 0,
             "processData": false,
@@ -45,22 +77,21 @@ $("#checkusers").on('submit',function(e){
                     type: "success",
                     closeOnConfirm: true,
                     allowOutsideClick: false,
-                    html: false
+                    html: true
                 }).then(function(){
-                    sessionStorage.token = result.token;
-                    window.location.reload();
+                    window.location.replace('../'); 
                 });
             } else  {    
                 swal({
                     title: "Lupa Katalaluan",
-                    text: "Sila Masukkan Email Pengguna " + no_kad_pengenalan,
+                    text: "",
                     type: "success",
                     closeOnConfirm: true,
                     allowOutsideClick: false,
-                    html: false
+                    html: result.message
                 }).then(function(){
                     sessionStorage.no_kad_pengenalan = no_kad_pengenalan;
-                    window.location.reload();   
+                    window.location.replace('../login');   
                 });
             }
         });

@@ -40,7 +40,7 @@ function tablePeranan() {
     
     $.ajax(settings).done(function (response) {
         let convertList = JSON.stringify(response.data);
-        $("#dataList").val(convertList);
+        $("#dataListPeranan").val(convertList);
         var list = [];
         var senarai_capaian = "";
         let bil = 1;
@@ -77,8 +77,8 @@ function tablePeranan() {
                 nama_peranan: field.nama_peranan,
                 nama_senarai: '<p style="white-space: pre-line">'+senarai_capaian+"</p>", 
                 bil: bil++,
-                "upt_btn":  '<button class="button button-box button-sm button-primary" style="display: none;" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> ' +
-                            '<button class="button button-box button-sm button-danger" title="Hapus" onclick="del_rekod(\''+field.id_peranan+'\')"><i class="ti-trash"></i>'
+                "upt_btn":  '<button class="button button-box button-sm button-primary" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> ' 
+                            // '<button class="button button-box button-sm button-danger" title="Hapus" onclick="del_rekod(\''+field.id_peranan+'\')"><i class="ti-trash"></i>'
             });
         });
     
@@ -87,7 +87,7 @@ function tablePeranan() {
             "rows": list,
             "paging": {
                 "enabled": true,
-                "size": 5
+                "size": 10
             },
             "filtering": {
                 "enabled": true,
@@ -134,7 +134,7 @@ function tableCapaian() {
             "rows": list,
             "paging": {
                 "enabled": true,
-                "size": 5
+                "size": 10
             },
             "filtering": {
                 "enabled": true,
@@ -199,17 +199,40 @@ function tablePengguna(){
 
 function loadData(indexs){   
 
-    let data = JSON.parse($("#dataList").val());
-    $('#upt_id').val(data[indexs].PK);   
-    $('#upt_FK_kampus').val(data[indexs].FK_kampus);   
-    $('#upt_FK_kluster').val(data[indexs].FK_kluster);   
-    $('#upt_FK_unit').val(data[indexs].FK_unit);   
-    $('#upt_FK_modul').val(data[indexs].FK_modul);   
-    $('#upt_kategori').val(data[indexs].kategori);   
-    saveLog(window.sessionStorage.id,"View Data of [id = " + data[indexs].PK + "] at Tetapan Admin Pengguna.",window.sessionStorage.browser);
+    let data = JSON.parse($("#dataListPeranan").val());
+    
+    $('#upt_id').val(data[indexs].id_peranan);
+    $('#upt_nama_peranan').val(data[indexs].nama_peranan);   
+    
+    saveLog(window.sessionStorage.id,"View Data of [id = " + data[indexs].id_peranan + "] at Tetapan Admin Pengguna.",window.sessionStorage.browser);
 
-    $("#update-useradmin").modal("show");
-    document.getElementById("upt_FK_kampus").focus();    
+    $("#update-peranan").modal("show");  
+
+    $('input[type=checkbox]').prop('checked',false);
+    var upt_FK_capaian = [];
+
+    listmodul = sessionStorage.listsubmodule.split(",");
+    listcapaian = data[indexs].FK_capaian.split(",");
+    listproses = ['C','R','U','D'];
+
+    for(var c=0;c<listcapaian.length;c++){
+        for(var m=0;m<listmodul.length;m++){
+
+            for(var p=0;p<listproses.length;p++){
+
+                var curprocess = listproses[p]+""+listmodul[m];
+                
+                if(listcapaian[c].indexOf(curprocess) >= 0){
+
+                    $('#upt_'+curprocess).prop('checked',true);
+                    
+                }
+                
+            }
+            
+        }
+    }
+
 }
 
 $('#FK_users').change(function(){
@@ -390,19 +413,94 @@ $("#registerPeranan").on('submit',function(e){
                 if (!result.success) {
                     // Swal(result.message, result.data, "error");
                     // return;
+                    console.log(result)
                     swal({
                         title: "Daftar Peranan Pengguna",
-                        text: result.data,
+                        text: result.message,
                         type: "error",
                         closeOnConfirm: true,
                         allowOutsideClick: false,
                         html: false
                     }).then(function(){
                         sessionStorage.token = result.token;
-                        window.location.reload();      
+                        // window.location.reload();      
                     });
                 } else  {
                     saveLog(window.sessionStorage.id,"Register Data [nama_peranan: "+ nama_peranan +"], [FK_capaian: "+ FK_capaian +"],  at Tetapan Peranan & Capaian.",window.sessionStorage.browser);
+                    // window.location.reload();  
+                }                
+            });
+        });
+    }
+});
+
+$("#updatePeranan").on('submit',function(e){
+    let $this = $(this);
+    if (!confirmed) {
+        e.preventDefault();
+        swal({
+            title: "Kemaskini Peranan Pengguna",
+            text: "Anda Pasti Untuk Simpan?",
+            type: "question",
+            showCancelButton: true,
+            confirmButtonText: "Simpan",
+            closeOnConfirm: true,
+            allowOutsideClick: false,
+            html: false
+        }).then(function(){
+            $("#reg-peranan").modal("hide");
+            let FK_capaian = [];
+            let upt_id = $("#upt_id").val();
+            let nama_peranan = $("#upt_nama_peranan").val();
+            $.each(jQuery("input[name='upt_crud']:checked"), function() {
+                FK_capaian.push({FK_capaian: jQuery(this).val()});
+            });
+            var stringFK_capaian = JSON.stringify(FK_capaian);
+            
+            // var param = {
+            //     twmTitle: nama_peranan,
+            //     twmDescription: FK_capaian,
+            // }
+            // console.log(param)
+                        
+            var form = new FormData();
+            form.append("id_peranan",upt_id);
+            form.append("nama_peranan",nama_peranan);
+            form.append("FK_submodul","0");
+            form.append("FK_capaian",stringFK_capaian);
+            form.append("created_by",window.sessionStorage.id);
+            form.append("updated_by",window.sessionStorage.id);
+            
+            var settings = {
+                "url": host+"api_pentadbir/public/perananUpdate",
+                "method": "POST",
+                "timeout": 0,
+                "processData": false,
+                "mimeType": "multipart/form-data",
+                "contentType": false,
+                "data": form
+            };
+
+            $.ajax(settings).done(function (response) {
+                // console.log(response);
+                result = JSON.parse(response);
+                if (!result.success) {
+                    // Swal(result.message, result.data, "error");
+                    // return;
+                    console.log(result)
+                    swal({
+                        title: "Kemaskini Peranan Pengguna",
+                        text: result.message,
+                        type: "error",
+                        closeOnConfirm: true,
+                        allowOutsideClick: false,
+                        html: false
+                    }).then(function(){
+                        sessionStorage.token = result.token;
+                        // window.location.reload();      
+                    });
+                } else  {
+                    saveLog(window.sessionStorage.id,"Update Data [nama_peranan: "+ nama_peranan +"], [FK_capaian: "+ FK_capaian +"],  at Tetapan Peranan & Capaian.",window.sessionStorage.browser);
                     window.location.reload();  
                 }                
             });
@@ -850,6 +948,8 @@ var settings = {
 // END Dropdown User List
 
 //Checkbox Submodul List
+sessionStorage.listsubmodule = [];
+var listsubmodule = [];
 var settings = {
     "url": host + "api_public/public/submodulsList",
     "method": "GET",
@@ -863,13 +963,29 @@ $.ajax(settings).done(function (response) {
                                         '<tbody>'+
                                             '<tr>'+
                                                 '<td width="30%"><label class="adomx-checkbox">'+ item.nama_submodul +'</label></td>'+
-                                                '<td width="10%"><label class="adomx-checkbox"><input class="form-control" type="checkbox" name="crud" value="C'+ item.id +'" id="c'+ item.id +'"/> <i class="icon"></i> Create</label></td>'+
-                                                '<td width="10%"><label class="adomx-checkbox"><input class="form-control" type="checkbox" name="crud" value="R'+ item.id +'" id="r'+ item.id +'"/> <i class="icon"></i> Read</label></td>'+
-                                                '<td width="10%"><label class="adomx-checkbox"><input class="form-control" type="checkbox" name="crud" value="U'+ item.id +'" id="u'+ item.id +'"/> <i class="icon"></i> Update</label></td>'+
-                                                '<td width="10%"><label class="adomx-checkbox"><input class="form-control" type="checkbox" name="crud" value="D'+ item.id +'" id="d'+ item.id +'"/> <i class="icon"></i> Delete</label></td>'+
+                                                '<td width="10%"><label class="adomx-checkbox"><input class="form-control" type="checkbox" name="crud" value="C'+ item.id_submodul +'" id="c'+ item.id_submodul +'"/> <i class="icon"></i> Create</label></td>'+
+                                                '<td width="10%"><label class="adomx-checkbox"><input class="form-control" type="checkbox" name="crud" value="R'+ item.id_submodul +'" id="r'+ item.id_submodul +'"/> <i class="icon"></i> Read</label></td>'+
+                                                '<td width="10%"><label class="adomx-checkbox"><input class="form-control" type="checkbox" name="crud" value="U'+ item.id_submodul +'" id="u'+ item.id_submodul +'"/> <i class="icon"></i> Update</label></td>'+
+                                                '<td width="10%"><label class="adomx-checkbox"><input class="form-control" type="checkbox" name="crud" value="D'+ item.id_submodul +'" id="d'+ item.id_submodul +'"/> <i class="icon"></i> Delete</label></td>'+
                                             '</tr>'+
                                         '</tbody>'+
                                     '</table>'));
+        
+                                    
+        $('#upt_FK_capaian').append($('<table width="100%">'+
+                                            '<tbody>'+
+                                                '<tr>'+
+                                                    '<td width="30%"><label class="adomx-checkbox">'+ item.nama_submodul +'</label></td>'+
+                                                    '<td width="10%"><label class="adomx-checkbox" id="tc'+ item.id_submodul +'"><input class="form-control" type="checkbox" name="upt_crud" value="C'+ item.id_submodul +'" id="upt_C'+ item.id_submodul +'"/> <i class="icon"></i> Create</label></td>'+
+                                                    '<td width="10%"><label class="adomx-checkbox" id="tr'+ item.id_submodul +'"><input class="form-control" type="checkbox" name="upt_crud" value="R'+ item.id_submodul +'" id="upt_R'+ item.id_submodul +'"/> <i class="icon"></i> Read</label></td>'+
+                                                    '<td width="10%"><label class="adomx-checkbox" id="tu'+ item.id_submodul +'"><input class="form-control" type="checkbox" name="upt_crud" value="U'+ item.id_submodul +'" id="upt_U'+ item.id_submodul +'"/> <i class="icon"></i> Update</label></td>'+
+                                                    '<td width="10%"><label class="adomx-checkbox" id="td'+ item.id_submodul +'"><input class="form-control" type="checkbox" name="upt_crud" value="D'+ item.id_submodul +'" id="upt_D'+ item.id_submodul +'"/> <i class="icon"></i> Delete</label></td>'+
+                                                '</tr>'+
+                                            '</tbody>'+
+                                        '</table>'));
+                                        listsubmodule.push(item.id_submodul);
     });    
+    sessionStorage.listsubmodule = listsubmodule;
+
 });
 // END Checkbox Format List

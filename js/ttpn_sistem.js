@@ -5,7 +5,7 @@ var settings = {
   };
 
 $.ajax(settings).done(function (response) {
-    $('#upt_id').val(response.data.id);
+    $('#upt_id').val(response.data.id_tetapan);
     $('#nama_sistem').val(response.data.nama_sistem);
     $('#versi_sistem').val(response.data.versi_sistem);
     $('#pelepasan_sistem').val(response.data.pelepasan_sistem);
@@ -19,6 +19,12 @@ $.ajax(settings).done(function (response) {
     $('#text_status_sistem').text(response.data.status_sistem);
     $('#text_polisi_katalaluan').text(response.data.polisi_katalaluan);
     $('#active_until').val(response.data.active_until);
+    $('#mail_gateway').val(response.data.mail_gateway);
+    $('#mail_username').val(response.data.mail_username);
+    $('#mail_password').val(response.data.mail_password);
+    $('#mail_smtp_secure').val(response.data.mail_smtp_secure);
+    $('#mail_port').val(response.data.mail_port);
+    $('#link_sistem').val(response.data.link_sistem);
 });
 
 //FUNCTION UPDATE
@@ -56,6 +62,12 @@ $("#update").on('submit',function(e){
             }
             let min_katalaluan = $("#min_katalaluan").val();
             let active_until = $("#active_until").val();
+            let mail_gateway = $("#mail_gateway").val();
+            let mail_username = $("#mail_username").val();
+            let mail_password = $("#mail_password").val();
+            let mail_smtp_secure = $("#mail_smtp_secure").val();
+            let mail_port = $("#mail_port").val();
+            let link_sistem = $("#link_sistem").val();
             var param = {
                 twmTitle: pelepasan_sistem,
                 twmDescription: status_sistem,
@@ -63,9 +75,9 @@ $("#update").on('submit',function(e){
                 b: active_until,
                 c: nama_sistem,
             }
-            console.log(param)
+            // console.log(param)
             var form = new FormData();
-            form.append("id", upt_id);
+            form.append("id_tetapan", upt_id);
             form.append("nama_sistem", nama_sistem);
             form.append("versi_sistem", versi_sistem);
             form.append("pelepasan_sistem", pelepasan_sistem);
@@ -73,6 +85,12 @@ $("#update").on('submit',function(e){
             form.append("min_katalaluan", min_katalaluan);
             form.append("polisi_katalaluan", polisi_katalaluan);
             form.append("active_until", active_until);
+            form.append("mail_gateway", mail_gateway);
+            form.append("mail_username", mail_username);
+            form.append("mail_password", mail_password);
+            form.append("mail_smtp_secure", mail_smtp_secure);
+            form.append("mail_port", mail_port);
+            form.append("link_sistem", link_sistem);
             form.append("updated_by", window.sessionStorage.id);
 
             var settings = {

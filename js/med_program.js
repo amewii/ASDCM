@@ -4,6 +4,7 @@ $(function () {
     $.ajaxSetup({
         cache: false
     });
+    cekCapaian()
     tableProgram();
     kampusList();
     klusterList();
@@ -15,6 +16,24 @@ $(function () {
     kategoriprogramList();
     vipList();
 });
+
+function cekCapaian(){
+
+    //TETAPAN MEDIA (ID:1)
+    if(window.sessionStorage.control_program_media_C2 == 1){
+        
+        $('#control_program_media_C2').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_program_media_R2 == 1){
+        $('#control_program_media_R2').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_program_media_U2 == 1){
+        $('#control_program_media_U2').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_program_media_D2 == 1){
+        $('#control_program_media_D2').removeClass('hidden');
+    }
+}
 
 function tableProgram() {
     var colums = [
@@ -28,11 +47,22 @@ function tableProgram() {
         { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
         // {"name":"status","title":"Status","breakpoints":"sm xs"}
     ];
-    var settings = {
-        "url": host + "api_media/public/programListAll",
-        "method": "GET",
-        "timeout": 0,
-      };
+
+    var settings = {};
+    if(window.sessionStorage.FK_peranan != 2){
+        settings = {
+            "url": host + "api_media/public/programListAll",
+            "method": "GET",
+            "timeout": 0,
+        };
+    }
+    else{
+        var settings = {
+            "url": host + "api_media/public/programListKluster/"+window.sessionStorage.FK_kluster,
+            "method": "GET",
+            "timeout": 0,
+          };
+    }
     
     $.ajax(settings).done(function (response) {
         let convertList = JSON.stringify(response.data);
@@ -51,20 +81,38 @@ function tableProgram() {
                 badge = 'badge-danger';
                 text_statusrekod = 'Tidak Aktif';   
             }
-            list.push({
-                id: field.id_program,
-                butiran_program: field.nama_program + "</br>" + t_program.getDate() + "/" + (t_program.getMonth() + 1) + 
-                                "/" + t_program.getFullYear() + "</br>" + field.nama_kluster + "</br>" + field.nama_unit + 
-                                "</br>" + field.nama_kategori + "</br>" + '<button class="button button-box button-sm button-primary" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> ' +
-                                ' <button class="button button-box button-sm button-info" title="Perincian" onclick="detail(\'' + field.id_program + '\',\'' + i + '\')" id="btnPerincian"><i class="ti-menu"></i></button>' +
-                                ' <button class="button button-box button-sm button-danger" title="Hapus" onclick="del_rekod(\''+field.id_program+'\')"><i class="ti-trash"></i>',
-                nama_kategori: field.nama_kategori, bilangan_fail: field.bilangan_fail, kod_format: field.kod_format, 
-                t_program:  t_program.getDate() + "/" + (t_program.getMonth() + 1) + "/" + t_program.getFullYear(), 
-                nama_program: field.nama_program, saiz_fail: field.saiz_fail, bil: bil++,
-                status_rekod: '<label class="adomx-switch-2 success"><input type="checkbox" id="status_sistem" class="form-control mb-20" '+checked+' onclick="del_rekod(\''+field.id_program+'\')"> <i class="lever"></i> <span id="text_statusrekod'+field.id_program+'" class="badge '+ badge +'">'+text_statusrekod+'</span></label>', 
-                upt_btn: '<button class="button button-box button-sm button-primary" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> ' +
-                ' <button class="button button-box button-sm button-info" title="Perincian" onclick="detail(\'' + field.id_program + '\',\'' + i + '\')" id="btnPerincian"><i class="ti-menu"></i></button>'
-            });
+
+            if(window.sessionStorage.control_program_media_U2 == 1){
+                list.push({
+                    id: field.id_program,
+                    butiran_program: field.nama_program + "</br>" + t_program.getDate() + "/" + (t_program.getMonth() + 1) + 
+                                    "/" + t_program.getFullYear() + "</br>" + field.nama_kluster + "</br>" + field.nama_unit + 
+                                    "</br>" + field.nama_kategori + "</br>" + '<button class="button button-box button-sm button-primary" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> ' +
+                                    ' <button class="button button-box button-sm button-info" title="Perincian" onclick="detail(\'' + field.id_program + '\',\'' + i + '\')" id="btnPerincian"><i class="ti-menu"></i></button>' +
+                                    ' <button class="button button-box button-sm button-danger" title="Hapus" onclick="del_rekod(\''+field.id_program+'\')"><i class="ti-trash"></i>',
+                    nama_kategori: field.nama_kategori, bilangan_fail: field.bilangan_fail, kod_format: field.kod_format, 
+                    t_program:  t_program.getDate() + "/" + (t_program.getMonth() + 1) + "/" + t_program.getFullYear(), 
+                    nama_program: field.nama_program, saiz_fail: field.saiz_fail, bil: bil++,
+                    status_rekod: '<label class="adomx-switch-2 success"><input type="checkbox" id="status_sistem" class="form-control mb-20" '+checked+' onclick="del_rekod(\''+field.id_program+'\')"> <i class="lever"></i> <span id="text_statusrekod'+field.id_program+'" class="badge '+ badge +'">'+text_statusrekod+'</span></label>', 
+                    upt_btn: '<button class="button button-box button-sm button-primary" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> ' +
+                    ' <button class="button button-box button-sm button-info" title="Perincian" onclick="detail(\'' + field.id_program + '\',\'' + i + '\')" id="btnPerincian"><i class="ti-menu"></i></button>'
+                });                
+            }else{
+                list.push({
+                    id: field.id_program,
+                    butiran_program: field.nama_program + "</br>" + t_program.getDate() + "/" + (t_program.getMonth() + 1) + 
+                                    "/" + t_program.getFullYear() + "</br>" + field.nama_kluster + "</br>" + field.nama_unit + 
+                                    "</br>" + field.nama_kategori + "</br>" + '<button class="button button-box button-sm button-primary" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> ' +
+                                    ' <button class="button button-box button-sm button-info" title="Perincian" onclick="detail(\'' + field.id_program + '\',\'' + i + '\')" id="btnPerincian"><i class="ti-menu"></i></button>' +
+                                    ' <button class="button button-box button-sm button-danger" title="Hapus" onclick="del_rekod(\''+field.id_program+'\')"><i class="ti-trash"></i>',
+                    nama_kategori: field.nama_kategori, bilangan_fail: field.bilangan_fail, kod_format: field.kod_format, 
+                    t_program:  t_program.getDate() + "/" + (t_program.getMonth() + 1) + "/" + t_program.getFullYear(), 
+                    nama_program: field.nama_program, saiz_fail: field.saiz_fail, bil: bil++,
+                    status_rekod: '<label class="adomx-switch-2 success"><span id="text_statusrekod'+field.id_program+'" class="badge '+ badge +'">'+text_statusrekod+'</span></label>', 
+                    upt_btn: ' <button class="button button-box button-sm button-info" title="Perincian" onclick="detail(\'' + field.id_program + '\',\'' + i + '\')" id="btnPerincian"><i class="ti-menu"></i></button>'
+                });
+            }
+            
         });
     
         $("#programList").footable({
