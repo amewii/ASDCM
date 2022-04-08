@@ -3,44 +3,48 @@ $(function(){
         cache: false
     });
     tableFormat();   
-    jenisFormat('jenis_format','');
+    cekCapaian();
 
 });
 
-function jenisFormat(id_name,id) {
+function cekCapaian(){
 
-    var settings = {
-        "url": host + "api_public/public/jenisFormatList",
-        "method": "GET",
-        "timeout": 0,
-      };
-
-      $.ajax(settings).done(function (response) {
-    
-        $('#'+id_name).empty();
-        $('#'+id_name).append($('<option>', { 
-            value: "",
-            text : "Pilih Jenis Format" 
-        }));
-        $.each(response.data, function (i, item) {
-            $('#'+id_name).append($('<option>', { 
-                value: item.id_jenisFormat,
-                text : item.jenisFormat
-            }));
-        });
-
-        if(id != '')$('#upt_jenis_format').val(id);
-    });
+    //TETAPAN MEDIA (ID:1)
+    if(window.sessionStorage.control_tetapan_media_C1 == 1){
+        $('#control_tetapan_media_C1').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_tetapan_media_R1 == 1){
+        $('#control_tetapan_media_R1').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_tetapan_media_U1 == 1){
+        $('#control_tetapan_media_U1').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_tetapan_media_D1 == 1){
+        $('#control_tetapan_media_D1').removeClass('hidden');
+    }
 }
 
+
 function tableFormat()  {
-    var colums = [
-        { "name": "bil", "title": "Bil" },
-        { "name": "kod_format", "title": "Nama" },
-        { "name": "status_rekod", "title": "Status", "breakpoints": "md sm xs" },
-        { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
-        // {"name":"status","title":"Status","breakpoints":"sm xs"}
-    ];
+
+    if(window.sessionStorage.control_tetapan_media_U1 == 1){
+        var colums = [
+            { "name": "bil", "title": "Bil" },
+            { "name": "kod_format", "title": "Nama" },
+            { "name": "status_rekod", "title": "Status", "breakpoints": "md sm xs" },
+            { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
+            // {"name":"status","title":"Status","breakpoints":"sm xs"}
+        ];
+    }else{
+        var colums = [
+            { "name": "bil", "title": "Bil" },
+            { "name": "kod_format", "title": "Nama" },
+            { "name": "status_rekod", "title": "Status", "breakpoints": "md sm xs" },
+            // { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
+            // {"name":"status","title":"Status","breakpoints":"sm xs"}
+        ];
+    }
+    
     var settings = {
         "url": host + "api_media/public/formatListAll",
         "method": "GET",
@@ -63,11 +67,21 @@ function tableFormat()  {
                 badge = 'badge-danger';
                 text_statusrekod = 'Tidak Aktif';   
             }
-            list.push({
-                id: field.id_format, kod_format: field.kod_format, bil: bil++,
-                status_rekod: '<label class="adomx-switch-2 success"><input type="checkbox" id="status_sistem" class="form-control mb-20" '+checked+' onclick="del_rekod(\''+field.id_format+'\')"> <i class="lever"></i> <span id="text_statusrekod'+field.id_format+'" class="badge '+ badge +'">'+text_statusrekod+'</span></label>', 
-                upt_btn:  '<button class="button button-bx button-sm button-primary" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> '
-            });
+
+            if(window.sessionStorage.control_tetapan_media_U1 == 1){
+                list.push({
+                    id: field.id_format, kod_format: field.kod_format, bil: bil++,
+                    status_rekod: '<label class="adomx-switch-2 success "><input type="checkbox" id="status_sistem" class="form-control mb-20" '+checked+' onclick="del_rekod(\''+field.id_format+'\')"> <i class="lever"></i> <span id="text_statusrekod'+field.id_format+'" class="badge '+ badge +'">'+text_statusrekod+'</span></label>', 
+                    upt_btn:  '<button class="button button-bx button-sm button-primary " id="control_tetapan_media_U1" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> '
+                });
+            }else{
+                list.push({
+                    id: field.id_format, kod_format: field.kod_format, bil: bil++,
+                    status_rekod: '<label class="adomx-switch-2 success "><span id="text_statusrekod'+field.id_format+'" class="badge '+ badge +'">'+text_statusrekod+'</span></label>', 
+                    // upt_btn:  '<button class="button button-bx button-sm button-primary  hidden" id="control_tetapan_media_U1" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> '
+                });
+            }
+            
         });
     
         $("#formatList").footable({

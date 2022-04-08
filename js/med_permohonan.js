@@ -1,4 +1,30 @@
 window.sessionStorage.med_permohonan_id = 0;
+
+$(function () {
+    $.ajaxSetup({
+        cache: false
+    });
+    cekCapaian()
+    // onPageLoad();
+});
+
+function cekCapaian(){
+
+    //TETAPAN MEDIA (ID:1)
+    if(window.sessionStorage.control_program_media_C3 == 1){
+        $('#control_program_media_C3').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_program_media_R3 == 1){
+        $('#control_program_media_R3').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_program_media_U3 == 1){
+        $('#control_program_media_U3').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_program_media_D3 == 1){
+        $('#control_program_media_D3').removeClass('hidden');
+    }
+}
+
 var settings = {
     "url": host + "api_media/public/tempoh/1",
     "method": "GET",
@@ -14,21 +40,45 @@ $("#back").click(function () {
     $('#content').load('med_program.html');
 });
 
-var colums = [
-    { "name": "bil", "title": "Bil" },
-    { "name": "nama_program", "title": "Nama Program" },
-    { "name": "nama", "title": "Nama Pemohon", "breakpoints": "md sm xs" },
-    { "name": "tarikh_permohonan", "title": "Tarikh Permohonan", "breakpoints": "md sm xs" },
-    { "name": "tarikh_luput", "title": "Tarikh Luput", "breakpoints": "md sm xs" },
-    { "name": "nama_status", "title": "Status", "breakpoints": "md sm xs" },
-    { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
-    // {"name":"status","title":"Status","breakpoints":"sm xs"}
-];
-var settings = {
-    "url": host + "api_media/public/permohonanList",
-    "method": "GET",
-    "timeout": 0,
-  };
+if(window.sessionStorage.control_program_media_U3 == 1){
+    var colums = [
+        { "name": "bil", "title": "Bil" },
+        { "name": "nama_program", "title": "Nama Program" },
+        { "name": "nama", "title": "Nama Pemohon", "breakpoints": "md sm xs" },
+        { "name": "tarikh_permohonan", "title": "Tarikh Permohonan", "breakpoints": "md sm xs" },
+        { "name": "tarikh_luput", "title": "Tarikh Luput", "breakpoints": "md sm xs" },
+        { "name": "nama_status", "title": "Status", "breakpoints": "md sm xs" },
+        { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
+        // {"name":"status","title":"Status","breakpoints":"sm xs"}
+    ];
+}
+else{
+    var colums = [
+        { "name": "bil", "title": "Bil" },
+        { "name": "nama_program", "title": "Nama Program" },
+        { "name": "nama", "title": "Nama Pemohon", "breakpoints": "md sm xs" },
+        { "name": "tarikh_permohonan", "title": "Tarikh Permohonan", "breakpoints": "md sm xs" },
+        { "name": "tarikh_luput", "title": "Tarikh Luput", "breakpoints": "md sm xs" },
+        { "name": "nama_status", "title": "Status", "breakpoints": "md sm xs" },
+        // { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
+        // {"name":"status","title":"Status","breakpoints":"sm xs"}
+    ];
+}
+
+if(window.sessionStorage.id_peranan == 1){
+    var settings = {
+        "url": host + "api_media/public/permohonanList",
+        "method": "GET",
+        "timeout": 0,
+    };
+}else if(window.sessionStorage.id_peranan == 2){
+    var settings = {
+        "url": host + "api_media/public/permohonanListFilter/"+window.sessionStorage.FK_peranan+"/"+window.sessionStorage.FK_kluster,
+        "method": "GET",
+        "timeout": 0,
+    };
+}
+
 
 $.ajax(settings).done(function (response) {
     let convertList = JSON.stringify(response.data);

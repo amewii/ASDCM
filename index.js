@@ -1,42 +1,132 @@
-var settings = {
-    "url": host + "api_pentadbir/public/capaian/"+window.sessionStorage.id,
-    "method": "GET",
-    "timeout": 0,
-};
+$(function(){
+    $.ajaxSetup ({
+        cache: false
+    });
+    settingCapaian();   
+    
 
-$.ajax(settings).done(function (response) {
-    if (window.sessionStorage.FK_capaian.indexOf('R1') >= 0)    {
-        $('#control_media').removeClass('hidden');
-        $('#control_tetapan_media').removeClass('hidden');
-    }
-    if (window.sessionStorage.FK_capaian.indexOf('R2') >= 0)    {
-        $('#control_media').removeClass('hidden');
-        $('#control_med_program').removeClass('hidden');
-    }
-    if (window.sessionStorage.FK_capaian.indexOf('R3') >= 0)    {
-        $('#control_media').removeClass('hidden');
-        $('#control_med_permohonan').removeClass('hidden');
-    }
-    if (window.sessionStorage.FK_capaian.indexOf('R4') >= 0)    {
-        $('#control_media').removeClass('hidden');
-        $('#control_laporan_media').removeClass('hidden');
-    }
-    if (window.sessionStorage.FK_capaian.indexOf('R5') >= 0)    {
-        $('#control_sysadmin').removeClass('hidden');
-        $('#control_pentadbir_sistem').removeClass('hidden');
-        // $('#control_senarai_pengguna').removeClass('hidden');
-    }
-    if (window.sessionStorage.FK_capaian.indexOf('R6') >= 0)    {
-        $('#control_sysadmin').removeClass('hidden');
-        $('#control_pentadbir_sistem').removeClass('hidden');
-        $('#control_ttpn_peranancapaian').removeClass('hidden');
-    }
-    if (window.sessionStorage.FK_capaian.indexOf('R7') >= 0)    {
-        $('#control_sysadmin').removeClass('hidden');
-        $('#control_pentadbir_sistem').removeClass('hidden');
-        $('#control_log').removeClass('hidden');
-    }
 });
+
+function settingCapaian(){
+    var settings = {
+        "url": host + "api_pentadbir/public/capaian/"+window.sessionStorage.id,
+        "method": "GET",
+        "timeout": 0,
+    };
+    
+    
+    $.ajax(settings).done(function (response) {
+    
+        //TETAPAN MEDIA
+        let med_tetapan = 0; let C1 = 0; let R1 = 0; let U1 = 0; let D1 = 0;
+        if (window.sessionStorage.FK_capaian.indexOf('C1') >= 0)    { //CREATE TETAPAN MEDIA
+            C1 = 1;
+            sessionStorage.control_tetapan_media_C1 = 1;
+        }
+        if (window.sessionStorage.FK_capaian.indexOf('R1') >= 0)    { //READ TETAPAN MEDIA
+            R1 = 1;
+            sessionStorage.control_tetapan_media_R1 = 1;
+        }
+        if (window.sessionStorage.FK_capaian.indexOf('U1') >= 0)    { //UPDATE TETAPAN MEDIA
+            U1 = 1;
+            sessionStorage.control_tetapan_media_U1 = 1;
+        }
+        if (window.sessionStorage.FK_capaian.indexOf('D1') >= 0)    { //DELETE TETAPAN MEDIA
+            D1 = 1;
+            sessionStorage.control_tetapan_media_D1 = 1;
+        }
+    
+        if(C1 == 1 || R1 == 1 || U1 == 1 || D1 == 1){
+            med_tetapan = 1;
+            $('#control_media').removeClass('hidden');
+            $('#control_tetapan_media').removeClass('hidden');
+        }
+    
+
+        //SENARAI PROGRAM
+        let med_program = 0; let C2 = 0; let R2 = 0; let U2 = 0; let D2 = 0;
+        if (window.sessionStorage.FK_capaian.indexOf('C2') >= 0)    { //CREATE TETAPAN MEDIA
+            C2 = 1;
+            sessionStorage.control_program_media_C2 = 1;
+        }
+        if (window.sessionStorage.FK_capaian.indexOf('R2') >= 0)    { //READ TETAPAN MEDIA
+            R2 = 1;
+            sessionStorage.control_program_media_R2 = 1;
+        }
+        if (window.sessionStorage.FK_capaian.indexOf('U2') >= 0)    { //UPDATE TETAPAN MEDIA
+            U2 = 1;
+            sessionStorage.control_program_media_U2 = 1;
+        }
+        if (window.sessionStorage.FK_capaian.indexOf('D2') >= 0)    { //DELETE TETAPAN MEDIA
+            D2 = 1;
+            sessionStorage.control_program_media_D2 = 1;
+        }
+    
+        if(C2 == 1 || R2 == 1 || U2 == 1 || D2 == 1){
+            med_program = 1;
+            $('#control_media').removeClass('hidden');
+            $('#control_med_program').removeClass('hidden');
+        }
+
+
+        //SENARAI PROGRAM
+        let med_permohonan = 0; let C3 = 0; let R3 = 0; let U3 = 0; let D3 = 0;
+        if (window.sessionStorage.FK_capaian.indexOf('C3') >= 0)    { //CREATE TETAPAN MEDIA
+            C3 = 1;
+            sessionStorage.control_program_media_C3 = 1;
+        }
+        if (window.sessionStorage.FK_capaian.indexOf('R3') >= 0)    { //READ TETAPAN MEDIA
+            R3 = 1;
+            sessionStorage.control_program_media_R3 = 1;
+        }
+        if (window.sessionStorage.FK_capaian.indexOf('U3') >= 0)    { //UPDATE TETAPAN MEDIA
+            U3 = 1;
+            sessionStorage.control_program_media_U3 = 1;
+        }
+        if (window.sessionStorage.FK_capaian.indexOf('D3') >= 0)    { //DELETE TETAPAN MEDIA
+            D3 = 1;
+            sessionStorage.control_program_media_D3 = 1;
+        }
+    
+        if(C3 == 1 || R3 == 1 || U3 == 1 || D3 == 1){
+            med_permohonan = 1;
+            $('#control_media').removeClass('hidden');
+            $('#control_med_permohonan').removeClass('hidden');
+        }
+    
+        // if(window.sessionStorage.FK_capaian.indexOf('R1') >= 0){
+        //     $('#control_media').removeClass('hidden');
+        //     $('#control_tetapan_media').removeClass('hidden');
+        // }
+        // if (window.sessionStorage.FK_capaian.indexOf('R2') >= 0)    {
+        //     $('#control_media').removeClass('hidden');
+        //     $('#control_med_program').removeClass('hidden');
+        // }
+        // if (window.sessionStorage.FK_capaian.indexOf('R3') >= 0)    {
+        //     $('#control_media').removeClass('hidden');
+        //     $('#control_med_permohonan').removeClass('hidden');
+        // }
+        if (window.sessionStorage.FK_capaian.indexOf('R4') >= 0)    {
+            $('#control_media').removeClass('hidden');
+            $('#control_laporan_media').removeClass('hidden');
+        }
+        if (window.sessionStorage.FK_capaian.indexOf('R5') >= 0)    {
+            $('#control_sysadmin').removeClass('hidden');
+            $('#control_pentadbir_sistem').removeClass('hidden');
+            $('#control_ttpn_sistem').removeClass('hidden');
+        }
+        if (window.sessionStorage.FK_capaian.indexOf('R6') >= 0)    {
+            $('#control_sysadmin').removeClass('hidden');
+            $('#control_pentadbir_sistem').removeClass('hidden');
+            $('#control_ttpn_peranancapaian').removeClass('hidden');
+        }
+        if (window.sessionStorage.FK_capaian.indexOf('R7') >= 0)    {
+            $('#control_sysadmin').removeClass('hidden');
+            $('#control_pentadbir_sistem').removeClass('hidden');
+            $('#control_log').removeClass('hidden');
+        }
+    });
+}
 
 $(document).ready(function(){
     let content = window.sessionStorage.content;

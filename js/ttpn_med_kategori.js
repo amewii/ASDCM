@@ -2,22 +2,59 @@ $(function(){
     $.ajaxSetup ({
         cache: false
     });
+    
+    cekCapaian();
     tableKategori();
     formatList();    
+    
 });
 
+
+function cekCapaian(){
+
+    //TETAPAN MEDIA (ID:1)
+    if(window.sessionStorage.control_tetapan_media_C1 == 1){
+        
+        $('#control_tetapan_media_kategori_C1').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_tetapan_media_R1 == 1){
+        $('#control_tetapan_media_R1').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_tetapan_media_U1 == 1){
+        $('#control_tetapan_media_U1').removeClass('hidden');
+    }
+    if(window.sessionStorage.control_tetapan_media_D1 == 1){
+        $('#control_tetapan_media_D1').removeClass('hidden');
+    }
+}
+
 function tableKategori(){
-    var colums = [
-        { "name": "bil", "title": "Bil" },
-        { "name": "kod_kategori", "title": "Kod" },
-        { "name": "nama_kategori", "title": "Nama" },
-        { "name": "bilangan_fail", "title": "Max Bilangan Fail", "breakpoints": "md sm xs" },
-        { "name": "kod_format", "title": "Format", "breakpoints": "md sm xs" },
-        { "name": "saiz_fail", "title": "Saiz Fail", "breakpoints": "md sm xs" },
-        { "name": "status_rekod", "title": "Status", "breakpoints": "md sm xs" },
-        { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
-        // {"name":"status","title":"Status","breakpoints":"sm xs"}
-    ];
+    if(window.sessionStorage.control_tetapan_media_U1 == 1){
+        var colums = [
+            { "name": "bil", "title": "Bil" },
+            { "name": "kod_kategori", "title": "Kod" },
+            { "name": "nama_kategori", "title": "Nama" },
+            { "name": "bilangan_fail", "title": "Max Bilangan Fail", "breakpoints": "md sm xs" },
+            { "name": "kod_format", "title": "Format", "breakpoints": "md sm xs" },
+            { "name": "saiz_fail", "title": "Saiz Fail", "breakpoints": "md sm xs" },
+            { "name": "status_rekod", "title": "Status", "breakpoints": "md sm xs" },
+            { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
+            // {"name":"status","title":"Status","breakpoints":"sm xs"}
+        ];
+    }else{
+        var colums = [
+            { "name": "bil", "title": "Bil" },
+            { "name": "kod_kategori", "title": "Kod" },
+            { "name": "nama_kategori", "title": "Nama" },
+            { "name": "bilangan_fail", "title": "Max Bilangan Fail", "breakpoints": "md sm xs" },
+            { "name": "kod_format", "title": "Format", "breakpoints": "md sm xs" },
+            { "name": "saiz_fail", "title": "Saiz Fail", "breakpoints": "md sm xs" },
+            { "name": "status_rekod", "title": "Status", "breakpoints": "md sm xs" },
+            // { "name": "upt_btn", "title": "Tindakan", "breakpoints": "md sm xs" },
+            // {"name":"status","title":"Status","breakpoints":"sm xs"}
+        ];
+    }
+    
     var settings = {
         "url": host + "api_media/public/kategoriprogramListAll",
         "method": "GET",
@@ -40,12 +77,23 @@ function tableKategori(){
                 badge = 'badge-danger';
                 text_statusrekod = 'Tidak Aktif';   
             }
-            list.push({
-                id: field.id_kategoriprogram, kod_kategori: field.kod_kategori, nama_kategori: field.nama_kategori, 
-                bilangan_fail: field.bilangan_fail, kod_format: field.kod_format, saiz_fail: field.saiz_fail + " MB", bil: bil++,
-                status_rekod: '<label class="adomx-switch-2 success"><input type="checkbox" id="status_sistem" class="form-control mb-20" '+checked+' onclick="del_rekod(\''+field.id_kategoriprogram+'\')"> <i class="lever"></i> <span id="text_statusrekod'+field.id_kategoriprogram+'" class="badge '+ badge +'">'+text_statusrekod+'</span></label>', 
-                upt_btn:  '<button class="button button-box button-sm button-primary" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> '
-            });
+
+            if(window.sessionStorage.control_tetapan_media_U1 == 1){
+                list.push({
+                    id: field.id_kategoriprogram, kod_kategori: field.kod_kategori, nama_kategori: field.nama_kategori, 
+                    bilangan_fail: field.bilangan_fail, kod_format: field.kod_format, saiz_fail: field.saiz_fail + " MB", bil: bil++,
+                    status_rekod: '<label class="adomx-switch-2 success"><input type="checkbox" id="status_sistem" class="form-control mb-20" '+checked+' onclick="del_rekod(\''+field.id_kategoriprogram+'\')"> <i class="lever"></i> <span id="text_statusrekod'+field.id_kategoriprogram+'" class="badge '+ badge +'">'+text_statusrekod+'</span></label>', 
+                    upt_btn:  '<button class="button button-box button-sm button-primary" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> '
+                });
+            }else{
+                list.push({
+                    id: field.id_kategoriprogram, kod_kategori: field.kod_kategori, nama_kategori: field.nama_kategori, 
+                    bilangan_fail: field.bilangan_fail, kod_format: field.kod_format, saiz_fail: field.saiz_fail + " MB", bil: bil++,
+                    status_rekod: '<label class="adomx-switch-2 success"> <span id="text_statusrekod'+field.id_kategoriprogram+'" class="badge '+ badge +'">'+text_statusrekod+'</span></label>', 
+                    // upt_btn:  '<button class="button button-box button-sm button-primary" onclick="loadData(\'' + i + '\')" data-ui-toggle-class="zoom" data-ui-target="#animate"><i class="ti-pencil-alt"></i></button> '
+                });
+            }
+            
         });
     
         $("#medkategoriList").footable({
